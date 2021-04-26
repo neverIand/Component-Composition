@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Application</title>
+</head>
+
+<body>
+
+  <style>
+    #app {
+      position: relative;
+      margin: auto;
+      width: 600px;
+      border: 1px solid black;
+    }
+
+    .content {
+      margin: 20px;
+    }
+  </style>
+
+  <div id="app">
+
+    <!-- 1. Get the list of public holiday of selected country: -->
+    <!-- 1a. get all the available countries -->
+    <h2>Available Countries/Regions:</h2>
+    <select name="country" id="select-country" onchange="searchCountry();">
+      <option value="placeholder">Select a country</option>
+      <!-- <option value="China">China</option> -->
+      <!-- <option value="test">test</option> -->
+    </select>
+
+    <ol class="list">
+
+    </ol>
+
+
+    <!-- Select the area of that country -->
+
+    <!-- Get the weather information of the selected area on that holiday -->
+
+    <!-- Get the available short-term accommodation rental information... -->
+
+
+
+    <button id="btn">TEST</button>
+    <div class="content">
+
+    </div>
+  </div>
+
+  <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
+  </script>
+
+  <script>
+    // https://calendarific.com/account
+
+    let testURL = 'https://api.muxiaoguo.cn/api/yiyan';
+    let testData = 'https://api.muxiaoguo.cn/api/yiyan?api_key=ad3478c7c4951c87';
+
+    // calendarific
+    const countryURL = 'https://calendarific.com/api/v2/countries'
+    const countryData = 'https://calendarific.com/api/v2/countries?&api_key=f92699ea84a0a64aa0b3d7f605f8a36d081c00a6'
+
+    // get all the available countries when the page loaded
+    document.addEventListener('DOMContentLoaded', (event) => {
+      console.log('loaded');
+      $.ajax({
+        type: 'GET',
+        url: countryURL,
+        data: countryData,
+        dataType: 'JSON',
+        error: function () {
+          alert('Network Error');
+        },
+        success: function (res) {
+          $.each(res.response.countries, function (index, item) {
+            $('#select-country').append(
+              '<option value="' + item['iso-3166'] + '">' + item.country_name + '</option>')
+          })
+
+        }
+      })
+    });
+
+    // get the selected value
+
+    function searchCountry() {
+      let selectedCountry = '&country=' + $('#select-country').val();
+
+      let year = '&year=' + 2021;
+
+      //const url = 'http://countryapi.gear.host/v1/Country/getCountries'
+
+      //let data = 'pName=' + selectedCountry
+
+      const cholidaysURL = 'https://calendarific.com/api/v2/holidays'
+
+      const colidayData = 'https://calendarific.com/api/v2/holidays?&api_key=f92699ea84a0a64aa0b3d7f605f8a36d081c00a6' +
+        selectedCountry + year
+
+      //alert(data)
+      if ($('#select-country').val() != 'placeholder') {
+        alert(selectedCountry);
+        $.ajax({
+          type: 'GET',
+          url: cholidaysURL,
+          data: colidayData,
+          dataType: 'JSON',
+          crossDomain: true,
+          error: function () {
+            alert('Network Error');
+          },
+          success: function (res) {
+            $('.list').html('') // remove the previous content
+            $.each(res.response.holidays, function (index, item) {
+
+              $('.list').append(
+                '<li>' + item.name + '</li>')
+            })
+
+            //$('.content').text(res.response.holidays[0].name);
+            //$('.content').text(res.data.constant);
+          }
+        })
+      } else {
+        alert('invalid selection');
+      }
+    }
+
+
+    $('#btn').click(function () {
+      //alert('clicked');
+      console.log('clicked');
+      $.ajax({
+        type: 'GET',
+        url: testURL, //'https://calendarific.com/api/v2/holidays',
+        data: testData, //'https://calendarific.com/api/v2/holidays?&api_key=f92699ea84a0a64aa0b3d7f605f8a36d081c00a6&country=US&year=2019',
+        dataType: 'JSON',
+        error: function () {
+          alert('ERROR');
+        },
+        success: function (res) {
+
+          //alert(res.result);
+          //$('.content').text(res.response.holidays[0].name);
+          $('.content').text(res.data.constant);
+        }
+      })
+    })
+  </script>
+</body>
+
+</html>
