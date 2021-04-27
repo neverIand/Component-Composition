@@ -28,22 +28,38 @@
 
     <!-- 1. Get the list of public holiday of selected country: -->
     <!-- 1a. get all the available countries -->
-    <h2>Available Countries/Regions:</h2>
-    <select name="country" id="select-country" onchange="searchCountry();">
-      <option value="placeholder">Select a country</option>
-      <!-- <option value="China">China</option> -->
-      <!-- <option value="test">test</option> -->
-    </select>
 
-    <select name="area" id="area-list" onchange="selectArea();">
-      <option value="a-placeholder">Select your area</option>
-    </select>
+    <div id="app-form">
+      <h2>Available Countries/Regions:</h2>
+      <select name="country" id="select-country" onchange="searchCountry();">
+        <option value="placeholder">Select a country</option>
+        <!-- <option value="China">China</option> -->
+        <!-- <option value="test">test</option> -->
+      </select>
 
-    <h2>Holidays:</h2>
-    <select name="holiday" id="holiday-list" onchange="selectHoliday();" style="max-width: 560px;">
-      <option value="h-placeholder">Select a holiday</option>
-    </select>
+      <div id="area-info" style="display: none;">
+        <h2>Select the state or province</h2>
+        <select name="area" id="area-list" onchange="selectArea();">
+          <option value="a-placeholder">Select the area</option>
+        </select>
+      </div>
 
+      <div id="city-info" style="display: none;">
+        <h2>Select the city or subordinate district</h2>
+        <select name="city" id="city-list" onchange="selectCity();">
+          <option value="c-placeholder">Select the city</option>
+        </select>
+      </div>
+
+
+      <div id="holiday-info" style="display: none;">
+        <h2>Holidays:</h2>
+        <select name="holiday" id="holiday-list" onchange="selectHoliday();" style="max-width: 580px;">
+          <option value="h-placeholder">Select a holiday</option>
+        </select>
+      </div>
+
+    </div>
 
 
 
@@ -67,13 +83,15 @@
   <script>
     // https://calendarific.com/account
 
-    let testURL = 'https://api.muxiaoguo.cn/api/yiyan';
-    let testData = 'https://api.muxiaoguo.cn/api/yiyan?api_key=ad3478c7c4951c87';
+    //let testURL = 'https://api.muxiaoguo.cn/api/yiyan';
+    //let testData = 'https://api.muxiaoguo.cn/api/yiyan?api_key=ad3478c7c4951c87';
 
     // calendarific
     const countryURL = 'https://calendarific.com/api/v2/countries'
     const countryData = 'https://calendarific.com/api/v2/countries?&api_key=f92699ea84a0a64aa0b3d7f605f8a36d081c00a6'
 
+    // token for REST API for countries
+    const api_token = "i7c8mYeYUSr9OMq0jSIk8MJdFAHqRpZtXZ_ec7FdClkKgWnG_vqueBorQq-9Y5o-kpg"
     // get all the available countries when the page loaded
     document.addEventListener('DOMContentLoaded', (event) => {
       console.log('loaded');
@@ -118,11 +136,11 @@
 
       // https://www.universal-tutorial.com/rest-apis/free-rest-api-for-country-state-city
       // token: i7c8mYeYUSr9OMq0jSIk8MJdFAHqRpZtXZ_ec7FdClkKgWnG_vqueBorQq-9Y5o-kpg
-      //const areaURL = ''
-      //const areaData = ''
 
       if ($('#select-country').val() != 'placeholder') {
         alert(selectedCountry);
+        // maybe add loading prompt here
+
         // get all the holidays of this country
         $.ajax({
           type: 'GET',
@@ -134,7 +152,11 @@
             alert('Network Error');
           },
           success: function (res) {
+            // remove the loading prompt
+            //
+
             $('#holiday-list').html('') // remove the previous content
+            $('#holiday-info').attr('style', 'display:block;');
             $.each(res.response.holidays, function (index, item) {
               $('#holiday-list').append(
                 '<option value="' + item.date.iso + '">' + item.name + '</option>')
@@ -150,7 +172,7 @@
           url: 'https://www.universal-tutorial.com/api/getaccesstoken',
           headers: {
             "Accept": "application/json",
-            "api-token": "i7c8mYeYUSr9OMq0jSIk8MJdFAHqRpZtXZ_ec7FdClkKgWnG_vqueBorQq-9Y5o-kpg",
+            "api-token": api_token,
             "user-email": "ratch3t@foxmail.com"
           },
           dataType: 'JSON',
@@ -173,7 +195,11 @@
                 alert('Network Error: Failed getting areas');
               },
               success: function (res) {
+                // remove the loading prompt
+                //
+
                 $('#area-list').html('')
+                $('#area-info').attr('style', 'display:block;');
                 $.each(res, function (index, item) {
                   $('#area-list').append(
                     '<option value="' + item.state_name + '">' + item.state_name + '</option>')
@@ -190,13 +216,61 @@
     }
 
     function selectArea() {
+      $('#city-list').html('')
+      $('#city-info').attr('style', 'display:none;');
       let selectedArea = $('#area-list').val();
 
+      // get the exact city
       if (selectedArea != 'a-placeholder') {
         alert(selectedArea)
-        // get the exact city
-        //
-        //
+        // maybe add loading prompt here
+
+        $.ajax({
+          type: 'GET',
+          url: 'https://www.universal-tutorial.com/api/getaccesstoken',
+          headers: {
+            "Accept": "application/json",
+            "api-token": api_token,
+            "user-email": "ratch3t@foxmail.com"
+          },
+          dataType: 'JSON',
+          error: function () {
+            alert('Network Error: Failed getting the access token for areas');
+          },
+          success: function (res) {
+
+            var token = res.auth_token
+
+            $.ajax({
+              type: 'GET',
+              url: 'https://www.universal-tutorial.com/api/cities/' + selectedArea,
+              headers: {
+                "Authorization": 'Bearer ' + token,
+                "Accept": "application/json"
+              },
+              dataType: 'JSON',
+              error: function () {
+                alert('Network Error: Failed getting cities');
+              },
+              success: function (res) {
+                // remove the loading prompt
+                // 
+
+                if (res.length > 1) {
+                  $('#city-list').html('')
+                  $('#city-info').attr('style', 'display:block;');
+                  $.each(res, function (index, item) {
+                    $('#city-list').append(
+                      '<option value="' + item.city_name + '">' + item.city_name + '</option>')
+                  })
+                } else {
+                  alert('this area does not have subordinate city or district')
+                }
+              }
+            })
+
+          }
+        })
 
       } else {
         alert('invalid selection')
@@ -204,11 +278,19 @@
 
     }
 
+    function selectCity() {
+      let selectedCity = $('#city-list').val();
+      alert(selectCity)
+      // maybe add loading prompt here
+    }
+
     function selectHoliday() {
       let selectedHoliday = $('#holiday-list').val();
 
       if (selectedHoliday != 'h-placeholder') {
         alert(selectedHoliday)
+        // maybe add loading prompt here
+
         // get the exact date
         // format: 'year-month-day'
         // 
@@ -230,7 +312,7 @@
         url: 'https://www.universal-tutorial.com/api/getaccesstoken',
         headers: {
           "Accept": "application/json",
-          "api-token": "i7c8mYeYUSr9OMq0jSIk8MJdFAHqRpZtXZ_ec7FdClkKgWnG_vqueBorQq-9Y5o-kpg",
+          "api-token": api_token,
           "user-email": "ratch3t@foxmail.com"
         },
         dataType: 'JSON',
