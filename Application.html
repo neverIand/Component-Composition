@@ -14,6 +14,7 @@
     #app {
       position: relative;
       margin: auto;
+      padding: 10px;
       width: 600px;
       border: 1px solid black;
     }
@@ -34,9 +35,16 @@
       <!-- <option value="test">test</option> -->
     </select>
 
-    <ol class="list">
+    <select name="area" id="area-list" onchange="selectArea();">
+      <option value="a-placeholder">Select your area</option>
+    </select>
 
-    </ol>
+    <h2>Holidays:</h2>
+    <select name="holiday" id="holiday-list" onchange="selectHoliday();" style="max-width: 560px;">
+      <option value="h-placeholder">Select a holiday</option>
+    </select>
+
+
 
 
     <!-- Select the area of that country -->
@@ -69,6 +77,7 @@
     // get all the available countries when the page loaded
     document.addEventListener('DOMContentLoaded', (event) => {
       console.log('loaded');
+
       $.ajax({
         type: 'GET',
         url: countryURL,
@@ -80,32 +89,41 @@
         success: function (res) {
           $.each(res.response.countries, function (index, item) {
             $('#select-country').append(
-              '<option value="' + item['iso-3166'] + '">' + item.country_name + '</option>')
+              '<option value="' + item['iso-3166'] + '&' + item.country_name + '">' + item
+              .country_name + '</option>')
           })
 
         }
       })
     });
 
-    // get the selected value
-
+    // get all the available countries and generate options
     function searchCountry() {
-      let selectedCountry = '&country=' + $('#select-country').val();
+      // iso-3166 code
+      var selectedData = $('#select-country').val();
 
-      let year = '&year=' + 2021;
+      // this is an array with format: iso3166code&countryname
+      var selectedCountry = selectedData.split('&')[0];
+      var countryName = selectedData.split('&')[1];
 
-      //const url = 'http://countryapi.gear.host/v1/Country/getCountries'
+      console.log('selectedCountry: ' + selectedCountry);
+      console.log('countryName: ' + countryName);
 
-      //let data = 'pName=' + selectedCountry
+      let year = 2021;
 
       const cholidaysURL = 'https://calendarific.com/api/v2/holidays'
-
       const colidayData = 'https://calendarific.com/api/v2/holidays?&api_key=f92699ea84a0a64aa0b3d7f605f8a36d081c00a6' +
-        selectedCountry + year
+        '&country=' + selectedCountry + '&year=' + year;
 
-      //alert(data)
+
+      // https://www.universal-tutorial.com/rest-apis/free-rest-api-for-country-state-city
+      // token: i7c8mYeYUSr9OMq0jSIk8MJdFAHqRpZtXZ_ec7FdClkKgWnG_vqueBorQq-9Y5o-kpg
+      //const areaURL = ''
+      //const areaData = ''
+
       if ($('#select-country').val() != 'placeholder') {
         alert(selectedCountry);
+        // get all the holidays of this country
         $.ajax({
           type: 'GET',
           url: cholidaysURL,
@@ -116,20 +134,91 @@
             alert('Network Error');
           },
           success: function (res) {
-            $('.list').html('') // remove the previous content
+            $('#holiday-list').html('') // remove the previous content
             $.each(res.response.holidays, function (index, item) {
+              $('#holiday-list').append(
+                '<option value="' + item.date.iso + '">' + item.name + '</option>')
 
-              $('.list').append(
-                '<li>' + item.name + '</li>')
             })
 
-            //$('.content').text(res.response.holidays[0].name);
-            //$('.content').text(res.data.constant);
+          }
+        })
+
+        // get all the areas (cities) of this country
+        $.ajax({
+          type: 'GET',
+          url: 'https://www.universal-tutorial.com/api/getaccesstoken',
+          headers: {
+            "Accept": "application/json",
+            "api-token": "i7c8mYeYUSr9OMq0jSIk8MJdFAHqRpZtXZ_ec7FdClkKgWnG_vqueBorQq-9Y5o-kpg",
+            "user-email": "ratch3t@foxmail.com"
+          },
+          dataType: 'JSON',
+          error: function () {
+            alert('Network Error: Failed getting the access token for areas');
+          },
+          success: function (res) {
+
+            var token = res.auth_token
+
+            $.ajax({
+              type: 'GET',
+              url: 'https://www.universal-tutorial.com/api/states/' + countryName,
+              headers: {
+                "Authorization": 'Bearer ' + token,
+                "Accept": "application/json"
+              },
+              dataType: 'JSON',
+              error: function () {
+                alert('Network Error: Failed getting areas');
+              },
+              success: function (res) {
+                $('#area-list').html('')
+                $.each(res, function (index, item) {
+                  $('#area-list').append(
+                    '<option value="' + item.state_name + '">' + item.state_name + '</option>')
+                })
+
+              }
+            })
+
           }
         })
       } else {
         alert('invalid selection');
       }
+    }
+
+    function selectArea() {
+      let selectedArea = $('#area-list').val();
+
+      if (selectedArea != 'a-placeholder') {
+        alert(selectedArea)
+        // get the exact city
+        //
+        //
+
+      } else {
+        alert('invalid selection')
+      }
+
+    }
+
+    function selectHoliday() {
+      let selectedHoliday = $('#holiday-list').val();
+
+      if (selectedHoliday != 'h-placeholder') {
+        alert(selectedHoliday)
+        // get the exact date
+        // format: 'year-month-day'
+        // 
+        //
+        //
+
+      } else {
+        alert('invalid selection')
+      }
+
     }
 
 
@@ -138,17 +227,41 @@
       console.log('clicked');
       $.ajax({
         type: 'GET',
-        url: testURL, //'https://calendarific.com/api/v2/holidays',
-        data: testData, //'https://calendarific.com/api/v2/holidays?&api_key=f92699ea84a0a64aa0b3d7f605f8a36d081c00a6&country=US&year=2019',
+        url: 'https://www.universal-tutorial.com/api/getaccesstoken',
+        headers: {
+          "Accept": "application/json",
+          "api-token": "i7c8mYeYUSr9OMq0jSIk8MJdFAHqRpZtXZ_ec7FdClkKgWnG_vqueBorQq-9Y5o-kpg",
+          "user-email": "ratch3t@foxmail.com"
+        },
         dataType: 'JSON',
         error: function () {
           alert('ERROR');
         },
         success: function (res) {
 
-          //alert(res.result);
-          //$('.content').text(res.response.holidays[0].name);
-          $('.content').text(res.data.constant);
+          var token = res.auth_token
+
+          $.ajax({
+            type: 'GET',
+            url: 'https://www.universal-tutorial.com/api/countries/',
+            headers: {
+              "Authorization": 'Bearer ' + token,
+              "Accept": "application/json"
+            },
+            dataType: 'JSON',
+            error: function () {
+              alert('ERROR');
+            },
+            success: function (res) {
+
+              //alert(res.result);
+              //$('.content').text(res.response.holidays[0].name);
+              $('.content').text(res[0].country_name);
+
+
+            }
+          })
+
         }
       })
     })
