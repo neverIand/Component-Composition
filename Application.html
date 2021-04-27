@@ -5,18 +5,108 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Application</title>
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+  <title>Component composition</title>
+
+  <script>
+    function showMsg(isLoading) {
+      if (isLoading) {
+        $('#app').attr('style', '-webkit-filter: blur(3px)');
+        $('#app').attr('style', 'filter: blur(3px)');
+        $('#loading-screen').attr('style', 'display: flex');
+        //alert('set');
+      } else {
+        $('#app').attr('style', '-webkit-filter: blur(0px)');
+        $('#app').attr('style', 'filter: blur(0px)');
+        $('#loading-screen').attr('style', 'display: none');
+        //alert('unset');
+      }
+    }
+  </script>
 </head>
 
 <body>
 
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-family: Arial, Helvetica, sans-serif !important;
+    }
+
+    @keyframes r {
+
+      0% {
+        -webkit-transform: rotate(0deg);
+      }
+
+      50% {
+        -webkit-transform: rotate(180deg);
+      }
+
+      100% {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+
+    @-webkit-keyframes r {
+
+      0% {
+        -webkit-transform: rotate(0deg);
+      }
+
+      50% {
+        -webkit-transform: rotate(180deg);
+      }
+
+      100% {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+
+    #loading-screen {
+      position: fixed;
+      display: none;
+      /*flex*/
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      top: 0;
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(255, 255, 255, 0.7);
+      /* -webkit-filter: blur(20px);
+      filter: blur(20px); */
+      z-index: 101;
+
+    }
+
+
+    #loading-msg {
+      padding: 20px;
+      border: 1px solid black;
+    }
+
+    .fa.fa-circle-o-notch {
+      animation: r 1s linear infinite;
+    }
+
     #app {
       position: relative;
       margin: auto;
       padding: 10px;
       width: 600px;
       border: 1px solid black;
+      z-index: 100;
+    }
+
+    h2 {
+      margin: 10px 0;
     }
 
     .content {
@@ -24,16 +114,23 @@
     }
   </style>
 
+  <div id="loading-screen">
+    <div id="loading-msg">
+      <i class="fa fa-circle-o-notch" style="font-size:48px;"></i>
+      <h1>Fetching data, please wait...</h1>
+    </div>
+  </div>
+
   <div id="app">
 
     <!-- 1. Get the list of public holiday of selected country: -->
     <!-- 1a. get all the available countries -->
 
     <div id="app-form">
-      <h2>Available Countries/Regions:</h2>
+      <h2>Select a Country or Region:</h2>
       <select name="country" id="select-country" onchange="searchCountry();">
         <option value="placeholder">Select a country</option>
-        <!-- <option value="China">China</option> -->
+        <option value="CN&China">ChinaTest</option>
         <!-- <option value="test">test</option> -->
       </select>
 
@@ -49,6 +146,13 @@
         <select name="city" id="city-list" onchange="selectCity();">
           <option value="c-placeholder">Select the city</option>
         </select>
+      </div>
+
+      <div id="weather-info" style="display: none;">
+        <h2>Weather of the selected place</h2>
+        <div id="weather-content">
+
+        </div>
       </div>
 
 
@@ -96,24 +200,25 @@
     document.addEventListener('DOMContentLoaded', (event) => {
       console.log('loaded');
 
-      $.ajax({
-        type: 'GET',
-        url: countryURL,
-        data: countryData,
-        dataType: 'JSON',
-        error: function () {
-          alert('Network Error');
-        },
-        success: function (res) {
-          $.each(res.response.countries, function (index, item) {
-            $('#select-country').append(
-              '<option value="' + item['iso-3166'] + '&' + item.country_name + '">' + item
-              .country_name + '</option>')
-          })
+      // $.ajax({
+      //   type: 'GET',
+      //   url: countryURL,
+      //   data: countryData,
+      //   dataType: 'JSON',
+      //   error: function () {
+      //     alert('Network Error');
+      //   },
+      //   success: function (res) {
+      //     $.each(res.response.countries, function (index, item) {
+      //       $('#select-country').append(
+      //         '<option value="' + item['iso-3166'] + '&' + item.country_name + '">' + item
+      //         .country_name + '</option>')
+      //     })
 
-        }
-      })
+      //   }
+      // })
     });
+
 
     // get all the available countries and generate options
     function searchCountry() {
@@ -137,9 +242,12 @@
       // https://www.universal-tutorial.com/rest-apis/free-rest-api-for-country-state-city
       // token: i7c8mYeYUSr9OMq0jSIk8MJdFAHqRpZtXZ_ec7FdClkKgWnG_vqueBorQq-9Y5o-kpg
 
+
+
       if ($('#select-country').val() != 'placeholder') {
-        alert(selectedCountry);
+        //alert(selectedCountry);
         // maybe add loading prompt here
+        showMsg(true);
 
         // get all the holidays of this country
         $.ajax({
@@ -154,6 +262,7 @@
           success: function (res) {
             // remove the loading prompt
             //
+            showMsg(false);
 
             $('#holiday-list').html('') // remove the previous content
             $('#holiday-info').attr('style', 'display:block;');
@@ -197,6 +306,7 @@
               success: function (res) {
                 // remove the loading prompt
                 //
+                showMsg(false);
 
                 $('#area-list').html('')
                 $('#area-info').attr('style', 'display:block;');
@@ -222,8 +332,9 @@
 
       // get the exact city
       if (selectedArea != 'a-placeholder') {
-        alert(selectedArea)
+        //alert(selectedArea)
         // maybe add loading prompt here
+        showMsg(true);
 
         $.ajax({
           type: 'GET',
@@ -255,6 +366,7 @@
               success: function (res) {
                 // remove the loading prompt
                 // 
+                showMsg(false)
 
                 if (res.length > 1) {
                   $('#city-list').html('')
@@ -278,10 +390,17 @@
 
     }
 
+    // weather api base url
+    //http://api.weatherunlocked.com/ or https://api.weatherunlocked.com/
+    //appid:b39b995a
+    //key:c87d719883516b97659376147a87a98c
+
     function selectCity() {
       let selectedCity = $('#city-list').val();
-      alert(selectCity)
+      alert(selectedCity)
       // maybe add loading prompt here
+      //showMsg(true);
+
     }
 
     function selectHoliday() {
@@ -303,46 +422,28 @@
 
     }
 
+    // weather api base url
+    //http://api.weatherunlocked.com/ or https://api.weatherunlocked.com/
+    //appid:b39b995a
+    //key:c87d719883516b97659376147a87a98c
 
     $('#btn').click(function () {
       //alert('clicked');
       console.log('clicked');
       $.ajax({
         type: 'GET',
-        url: 'https://www.universal-tutorial.com/api/getaccesstoken',
-        headers: {
+        url: 'http://api.weatherunlocked.com/api/forecast/51.50,-0.12?app_id=b39b995a&app_key=c87d719883516b97659376147a87a98c',
+        /* headers: {
           "Accept": "application/json",
           "api-token": api_token,
           "user-email": "ratch3t@foxmail.com"
-        },
+        }, */
         dataType: 'JSON',
         error: function () {
           alert('ERROR');
         },
         success: function (res) {
 
-          var token = res.auth_token
-
-          $.ajax({
-            type: 'GET',
-            url: 'https://www.universal-tutorial.com/api/countries/',
-            headers: {
-              "Authorization": 'Bearer ' + token,
-              "Accept": "application/json"
-            },
-            dataType: 'JSON',
-            error: function () {
-              alert('ERROR');
-            },
-            success: function (res) {
-
-              //alert(res.result);
-              //$('.content').text(res.response.holidays[0].name);
-              $('.content').text(res[0].country_name);
-
-
-            }
-          })
 
         }
       })
