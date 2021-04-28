@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
-  <title>Component composition</title>
+  <title>Component Composition</title>
 
   <script>
     function showMsg(isLoading) {
@@ -101,6 +101,12 @@
       z-index: 100;
     }
 
+    #weather-list {
+      padding-top: 10px;
+      padding-left: 20px;
+      border: 1px solid black;
+    }
+
     h2 {
       margin: 10px 0;
     }
@@ -144,11 +150,12 @@
         </select>
       </div>
 
+      <!-- Get the weather information of the selected area on that holiday -->
       <div id="weather-info" style="display: none;">
         <h2>Weather of the selected place</h2>
-        <div id="weather-content">
+        <ol id="weather-list">
 
-        </div>
+        </ol>
       </div>
 
 
@@ -159,10 +166,17 @@
         </select>
       </div>
 
+      <div id="ac-info" style="display: none;">
+        <h2>Accommodation Rental Info</h2>
+        <ol id="ac-list">
+
+        </ol>
+      </div>
+
     </div>
 
 
-    <!-- Get the weather information of the selected area on that holiday -->
+
 
     <!-- Get the available short-term accommodation rental information... -->
 
@@ -193,23 +207,23 @@
     document.addEventListener('DOMContentLoaded', (event) => {
       console.log('loaded');
 
-      $.ajax({
-        type: 'GET',
-        url: countryURL,
-        data: countryData,
-        dataType: 'JSON',
-        error: function () {
-          alert('Network Error');
-        },
-        success: function (res) {
-          $.each(res.response.countries, function (index, item) {
-            $('#select-country').append(
-              '<option value="' + item['iso-3166'] + '&' + item.country_name + '">' + item
-              .country_name + '</option>')
-          })
+      // $.ajax({
+      //   type: 'GET',
+      //   url: countryURL,
+      //   data: countryData,
+      //   dataType: 'JSON',
+      //   error: function () {
+      //     alert('Network Error');
+      //   },
+      //   success: function (res) {
+      //     $.each(res.response.countries, function (index, item) {
+      //       $('#select-country').append(
+      //         '<option value="' + item['iso-3166'] + '&' + item.country_name + '">' + item
+      //         .country_name + '</option>')
+      //     })
 
-        }
-      })
+      //   }
+      // })
     });
 
 
@@ -246,7 +260,7 @@
         $('#city-list').html('')
         $('#city-info').attr('style', 'display:none;');
 
-        // get all the holidays of this country
+        //get all the holidays of this country
         $.ajax({
           type: 'GET',
           url: cholidaysURL,
@@ -258,10 +272,13 @@
           },
           success: function (res) {
             // remove the loading prompt
-            // showMsg(false);
+            // most of the time it will load faster than city info
+            // need a better way to close the prompt
+            showMsg(false);
 
 
-            $('#holiday-list').html('') // remove the previous content
+            $('#holiday-list').html(
+              '<option value="h-placeholder">Select a holiday</option>') // remove the previous content
             $('#holiday-info').attr('style', 'display:block;');
             $.each(res.response.holidays, function (index, item) {
               $('#holiday-list').append(
@@ -305,7 +322,7 @@
                 //
                 showMsg(false);
 
-                $('#area-list').html('')
+                $('#area-list').html('<option value="a-placeholder">Select an area</option>')
                 $('#area-info').attr('style', 'display:block;');
                 $.each(res, function (index, item) {
                   $('#area-list').append(
@@ -323,6 +340,8 @@
     }
 
     function selectArea() {
+      $('#weather-list').html('')
+      $('#weather-info').attr('style', 'display:none;');
       $('#city-list').html('')
       $('#city-info').attr('style', 'display:none;');
       let selectedArea = $('#area-list').val();
@@ -366,7 +385,7 @@
                 showMsg(false)
 
                 if (res.length > 1) {
-                  $('#city-list').html('')
+                  $('#city-list').html('<option value="c-placeholder">Select a city or district</option>')
                   $('#city-info').attr('style', 'display:block;');
                   $.each(res, function (index, item) {
                     $('#city-list').append(
@@ -393,10 +412,34 @@
     //key:c87d719883516b97659376147a87a98c
 
     function selectCity() {
+      $('#weather-list').html('')
+      $('#weather-info').attr('style', 'display:none;');
       let selectedCity = $('#city-list').val();
       alert(selectedCity)
       // maybe add loading prompt here
-      //showMsg(true);
+      showMsg(true);
+      const api_key = '51563523b41b41b3bd981420212804'
+      //let city_name = 'Chongqing'
+      let days = 5;
+
+      $.ajax({
+        type: 'GET',
+        crossDomain: true,
+        url: 'http://api.weatherapi.com/v1/forecast.json?key=' + api_key + '&q=' + selectedCity + '&days=' + days,
+        dataType: 'JSON',
+        error: function () {
+          alert('Network error');
+        },
+        success: function (res) {
+          showMsg(false);
+          $('#weather-list').html('')
+          $('#weather-info').attr('style', 'display:block;');
+          $.each(res.forecast.forecastday, function (index, item) {
+            $('#weather-list').append(
+              '<li>' + item.day.maxtemp_c + '</li>')
+          })
+        }
+      })
 
     }
 
@@ -427,9 +470,15 @@
     $('#btn').click(function () {
       //alert('clicked');
       console.log('clicked');
+
+      const api_key = '51563523b41b41b3bd981420212804'
+      let city_name = 'Chongqing'
+      let days = 5;
+
       $.ajax({
         type: 'GET',
-        url: 'http://api.weatherunlocked.com/api/forecast/51.50,-0.12?app_id=b39b995a&app_key=c87d719883516b97659376147a87a98c',
+        crossDomain: true,
+        url: 'http://api.weatherapi.com/v1/forecast.json?key=' + api_key + '&q=' + city_name + '&days=' + days,
         /* headers: {
           "Accept": "application/json",
           "api-token": api_token,
