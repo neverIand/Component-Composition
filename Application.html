@@ -70,7 +70,6 @@
     #loading-screen {
       position: fixed;
       display: none;
-      /*flex*/
       text-align: center;
       justify-content: center;
       align-items: center;
@@ -80,10 +79,7 @@
       width: 100vw;
       height: 100vh;
       background-color: rgba(255, 255, 255, 0.7);
-      /* -webkit-filter: blur(20px);
-      filter: blur(20px); */
       z-index: 101;
-
     }
 
 
@@ -131,9 +127,9 @@
       <select name="country" id="select-country" onchange="searchCountry();">
         <option value="placeholder">Select a country</option>
         <option value="CN&China">ChinaTest</option>
-        <!-- <option value="test">test</option> -->
       </select>
 
+      <!-- Select the area of that country -->
       <div id="area-info" style="display: none;">
         <h2>Select the state or province</h2>
         <select name="area" id="area-list" onchange="selectArea();">
@@ -166,9 +162,6 @@
     </div>
 
 
-
-    <!-- Select the area of that country -->
-
     <!-- Get the weather information of the selected area on that holiday -->
 
     <!-- Get the available short-term accommodation rental information... -->
@@ -200,23 +193,23 @@
     document.addEventListener('DOMContentLoaded', (event) => {
       console.log('loaded');
 
-      // $.ajax({
-      //   type: 'GET',
-      //   url: countryURL,
-      //   data: countryData,
-      //   dataType: 'JSON',
-      //   error: function () {
-      //     alert('Network Error');
-      //   },
-      //   success: function (res) {
-      //     $.each(res.response.countries, function (index, item) {
-      //       $('#select-country').append(
-      //         '<option value="' + item['iso-3166'] + '&' + item.country_name + '">' + item
-      //         .country_name + '</option>')
-      //     })
+      $.ajax({
+        type: 'GET',
+        url: countryURL,
+        data: countryData,
+        dataType: 'JSON',
+        error: function () {
+          alert('Network Error');
+        },
+        success: function (res) {
+          $.each(res.response.countries, function (index, item) {
+            $('#select-country').append(
+              '<option value="' + item['iso-3166'] + '&' + item.country_name + '">' + item
+              .country_name + '</option>')
+          })
 
-      //   }
-      // })
+        }
+      })
     });
 
 
@@ -248,6 +241,10 @@
         //alert(selectedCountry);
         // maybe add loading prompt here
         showMsg(true);
+        $('#area-list').html('')
+        $('#area-info').attr('style', 'display:none;');
+        $('#city-list').html('')
+        $('#city-info').attr('style', 'display:none;');
 
         // get all the holidays of this country
         $.ajax({
@@ -261,8 +258,8 @@
           },
           success: function (res) {
             // remove the loading prompt
-            //
-            showMsg(false);
+            // showMsg(false);
+
 
             $('#holiday-list').html('') // remove the previous content
             $('#holiday-info').attr('style', 'display:block;');
