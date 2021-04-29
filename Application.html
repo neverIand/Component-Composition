@@ -358,23 +358,23 @@
     document.addEventListener('DOMContentLoaded', (event) => {
       console.log('loaded');
 
-      // $.ajax({
-      //   type: 'GET',
-      //   url: countryURL,
-      //   data: countryData,
-      //   dataType: 'JSON',
-      //   error: function () {
-      //     alert('Network Error');
-      //   },
-      //   success: function (res) {
-      //     $.each(res.response.countries, function (index, item) {
-      //       $('#select-country').append(
-      //         '<option value="' + item['iso-3166'] + '&' + item.country_name + '">' + item
-      //         .country_name + '</option>')
-      //     })
+      $.ajax({
+        type: 'GET',
+        url: countryURL,
+        data: countryData,
+        dataType: 'JSON',
+        error: function () {
+          alert('Network Error');
+        },
+        success: function (res) {
+          $.each(res.response.countries, function (index, item) {
+            $('#select-country').append(
+              '<option value="' + item['iso-3166'] + '&' + item.country_name + '">' + item
+              .country_name + '</option>')
+          })
 
-      //   }
-      // })
+        }
+      })
     });
 
 
@@ -596,14 +596,12 @@
                 $('#weather-list').html('')
                 $('#weather-info').attr('style',
                   'display:block;'); // pass the params to the weather card template
-                $.each(res.forecast.forecastday, function (index, item) {
-                  $('#weather-list').append('<li><weather-card date="' + item.date + '" condition="' +
-                    item.day.condition.text + '"iconURL="' + item.day.condition.icon + '" avgtemp="' + item
-                    .day.avgtemp_c +
-                    '" maxtemp="' + item.day.maxtemp_c + '" mintemp="' + item.day.mintemp_c + '" rain="' +
-                    item.day.daily_chance_of_rain + '" wind="' + item.day.maxwind_kph +
-                    '"></weather-card></li>')
-                })
+                $('#weather-list').append('<li><weather-card date="' + res.location.localtime + '" condition="' +
+                  res.current.condition.text + '"iconURL="' + res.current.condition.icon + '" avgtemp="' +
+                  res.current.temp_c +
+                  '" maxtemp="' + 'not available' + '" mintemp="' + 'not available' + '" rain="' +
+                  'not available' + '" wind="' + res.wind_kph +
+                  '"></weather-card></li>')
               }
             })
 
@@ -742,14 +740,12 @@
                 $('#weather-list').html('')
                 $('#weather-info').attr('style',
                   'display:block;'); // pass the params to the weather card template
-                $.each(res.forecast.forecastday, function (index, item) {
-                  $('#weather-list').append('<li><weather-card date="' + item.date + '" condition="' +
-                    item.day.condition.text + '"iconURL="' + item.day.condition.icon + '" avgtemp="' + item
-                    .day.avgtemp_c +
-                    '" maxtemp="' + item.day.maxtemp_c + '" mintemp="' + item.day.mintemp_c + '" rain="' +
-                    item.day.daily_chance_of_rain + '" wind="' + item.day.maxwind_kph +
-                    '"></weather-card></li>')
-                })
+                $('#weather-list').append('<li><weather-card date="' + res.location.localtime + '" condition="' +
+                  res.current.condition.text + '"iconURL="' + res.current.condition.icon + '" avgtemp="' +
+                  res.current.temp_c +
+                  '" maxtemp="' + 'not available' + '" mintemp="' + 'not available' + '" rain="' +
+                  'not available' + '" wind="' + res.wind_kph +
+                  '"></weather-card></li>')
               }
             })
           } else if (diff < 0) {
