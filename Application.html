@@ -9,6 +9,7 @@
   <title>Component Composition</title>
 
   <script>
+    // loading window controller
     function showMsg(isLoading) {
       if (isLoading) {
         $('#app').attr('style', '-webkit-filter: blur(3px)');
@@ -127,7 +128,7 @@
       }
 
       .icon {
-        
+
         width: 20px;
       }
     </style>
@@ -249,10 +250,12 @@
     #weather-list {
       list-style: none;
       padding-top: 10px;
+      max-height: 400px;
+      overflow-y: scroll;
       border: 1px solid black;
     }
 
-    #weather-list li{
+    #weather-list li {
       margin-top: 20px;
     }
 
@@ -284,6 +287,8 @@
         <option value="CN&China">ChinaTest</option>
       </select>
 
+
+
       <!-- Select the area of that country -->
       <div id="area-info" style="display: none;">
         <h2>Select the state or province</h2>
@@ -299,6 +304,13 @@
         </select>
       </div>
 
+      <div id="holiday-info" style="display: none;">
+        <h2>Holidays:</h2>
+        <select name="holiday" id="holiday-list" onchange="selectHoliday();" style="max-width: 580px;">
+          <option value="h-placeholder">Select a holiday</option>
+        </select>
+      </div>
+
       <!-- Get the weather information of the selected area on that holiday -->
       <div id="weather-info" style="display: none;">
         <h2>Weather of the selected place</h2>
@@ -307,14 +319,7 @@
         </ul>
       </div>
 
-
-      <div id="holiday-info" style="display: none;">
-        <h2>Holidays:</h2>
-        <select name="holiday" id="holiday-list" onchange="selectHoliday();" style="max-width: 580px;">
-          <option value="h-placeholder">Select a holiday</option>
-        </select>
-      </div>
-
+      <!-- Get the available short-term accommodation rental information... -->
       <div id="ac-info" style="display: none;">
         <h2>Accommodation Rental Info</h2>
         <ol id="ac-list">
@@ -323,13 +328,6 @@
       </div>
 
     </div>
-
-
-
-
-    <!-- Get the available short-term accommodation rental information... -->
-
-
 
     <button id="btn">TEST</button>
     <div class="content">
@@ -341,10 +339,10 @@
   </script>
 
   <script>
+    // Some apis may need to regenerate key every day
+
     // https://calendarific.com/account
 
-    //let testURL = 'https://api.muxiaoguo.cn/api/yiyan';
-    //let testData = 'https://api.muxiaoguo.cn/api/yiyan?api_key=ad3478c7c4951c87';
 
     // calendarific
     const countryURL = 'https://calendarific.com/api/v2/countries'
@@ -352,6 +350,10 @@
 
     // token for REST API for countries
     const api_token = "i7c8mYeYUSr9OMq0jSIk8MJdFAHqRpZtXZ_ec7FdClkKgWnG_vqueBorQq-9Y5o-kpg"
+
+    var selectedHoliday = null;
+    var selectedCity = null;
+
     // get all the available countries when the page loaded
     document.addEventListener('DOMContentLoaded', (event) => {
       console.log('loaded');
@@ -397,7 +399,6 @@
 
       // https://www.universal-tutorial.com/rest-apis/free-rest-api-for-country-state-city
       // token: i7c8mYeYUSr9OMq0jSIk8MJdFAHqRpZtXZ_ec7FdClkKgWnG_vqueBorQq-9Y5o-kpg
-
 
 
       if ($('#select-country').val() != 'placeholder') {
@@ -468,7 +469,6 @@
               },
               success: function (res) {
                 // remove the loading prompt
-                //
                 showMsg(false);
 
                 $('#area-list').html('<option value="a-placeholder">Select an area</option>')
@@ -530,7 +530,6 @@
               },
               success: function (res) {
                 // remove the loading prompt
-                // 
                 showMsg(false)
 
                 if (res.length > 1) {
@@ -563,60 +562,313 @@
     function selectCity() {
       $('#weather-list').html('')
       $('#weather-info').attr('style', 'display:none;');
-      let selectedCity = $('#city-list').val();
-      alert(selectedCity)
+      selectedCity = $('#city-list').val();
+      //alert(selectedCity)
       // maybe add loading prompt here
-      showMsg(true);
-      const api_key = '51563523b41b41b3bd981420212804'
-      //let city_name = 'Chongqing'
-      let days = 5;
 
-      $.ajax({
-        type: 'GET',
-        crossDomain: true,
-        url: 'http://api.weatherapi.com/v1/forecast.json?key=' + api_key + '&q=' + selectedCity + '&days=' + days,
-        dataType: 'JSON',
-        error: function () {
-          alert('Network error');
-        },
-        success: function (res) {
-          showMsg(false);
-          $('#weather-list').html('')
-          $('#weather-info').attr('style', 'display:block;');
-          $.each(res.forecast.forecastday, function (index, item) {
-            $('#weather-list').append(
-              '<li><weather-card date="' + item.date +
-              '" condition="' + item.day.condition.text +
-              '"iconURL="' + item.day.condition.icon +
-              '" avgtemp="' + item.day.avgtemp_c +
-              '" maxtemp="' + item.day.maxtemp_c +
-              '" mintemp="' + item.day.mintemp_c +
-              '" rain="' + item.day.daily_chance_of_rain +
-              '" wind="' + item.day.maxwind_kph + '"></weather-card></li>')
-          })
+
+      if (selectedHoliday != 'h-placeholder' &&
+        selectedHoliday != null) {
+
+        if (selectedCity != 'c-placeholder' && selectedCity != null) {
+          var time = getCurrentDate()
+          let diff = dateDiff(selectedHoliday, time)
+
+          // #######
+          // Case 1: The holiday is too far away
+          // #######
+          if (diff > 3) {
+            alert('The selected holiday is too far way to get weather condition')
+
+            showMsg(true);
+            const api_key = '51563523b41b41b3bd981420212804'
+            $.ajax({
+              type: 'GET',
+              crossDomain: true,
+              url: 'http://api.weatherapi.com/v1/current.json?key=' + api_key +
+                '&q=' + selectedCity,
+              dataType: 'JSON',
+              error: function () {
+                alert('Network error');
+              },
+              success: function (res) {
+                showMsg(false);
+                $('#weather-list').html('')
+                $('#weather-info').attr('style',
+                  'display:block;'); // pass the params to the weather card template
+                $.each(res.forecast.forecastday, function (index, item) {
+                  $('#weather-list').append('<li><weather-card date="' + item.date + '" condition="' +
+                    item.day.condition.text + '"iconURL="' + item.day.condition.icon + '" avgtemp="' + item
+                    .day.avgtemp_c +
+                    '" maxtemp="' + item.day.maxtemp_c + '" mintemp="' + item.day.mintemp_c + '" rain="' +
+                    item.day.daily_chance_of_rain + '" wind="' + item.day.maxwind_kph +
+                    '"></weather-card></li>')
+                })
+              }
+            })
+
+            // #######
+            // Case 2: The holiday passed already
+            // #######
+          } else if (diff < 0) {
+
+            alert('The holiday you choosed is overdue')
+            $('#weather-list').html('')
+
+            // #######
+            // Case 3: The holiday is the day selected
+            // #######
+          } else if (diff == 0) {
+            alert('display today\'s weather')
+
+            showMsg(true);
+            const api_key = '51563523b41b41b3bd981420212804'
+            $.ajax({
+              type: 'GET',
+              crossDomain: true,
+              url: 'http://api.weatherapi.com/v1/current.json?key=' + api_key +
+                '&q=' + selectedCity,
+              dataType: 'JSON',
+              error: function () {
+                alert('Network error');
+              },
+              success: function (res) {
+                showMsg(false);
+                $('#weather-list').html('')
+                $('#weather-info').attr('style',
+                  'display:block;'); // pass the params to the weather card template
+                //$.each(res.forecast.forecastday, function (index, item) {
+                $('#weather-list').append('<li><weather-card date="' + res.location.localtime + '" condition="' +
+                  res.current.condition.text + '"iconURL="' + res.current.condition.icon + '" avgtemp="' +
+                  res.current.temp_c +
+                  '" maxtemp="' + 'not available' + '" mintemp="' + 'not available' + '" rain="' +
+                  'not available' + '" wind="' + res.wind_kph +
+                  '"></weather-card></li>')
+                //})
+
+                // #######
+                // Get the information of available hotels
+                // #######
+
+
+
+              }
+            })
+            // #######
+            // Case 4: The holiday is less than 4 days away
+            // #######
+          } else {
+            alert('display forecast')
+
+            // fetch for weather info
+            showMsg(true);
+            const api_key = '51563523b41b41b3bd981420212804'
+            const days = 7;
+            $.ajax({
+              type: 'GET',
+              crossDomain: true,
+              url: 'http://api.weatherapi.com/v1/forecast.json?key=' + api_key +
+                '&q=' + selectedCity + '&days=' + days,
+              dataType: 'JSON',
+              error: function () {
+                alert('Network error');
+              },
+              success: function (res) {
+                showMsg(false);
+                $('#weather-list').html('')
+                $('#weather-info').attr('style',
+                  'display:block;'); // pass the params to the weather card template
+                $.each(res.forecast.forecastday, function (index, item) {
+                  $('#weather-list').append('<li><weather-card date="' + item.date + '" condition="' +
+                    item.day.condition.text + '"iconURL="' + item.day.condition.icon + '" avgtemp="' + item
+                    .day.avgtemp_c +
+                    '" maxtemp="' + item.day.maxtemp_c + '" mintemp="' + item.day.mintemp_c + '" rain="' +
+                    item.day.daily_chance_of_rain + '" wind="' + item.day.maxwind_kph +
+                    '"></weather-card></li>')
+                })
+
+
+
+                // #######
+                // Get the information of available hotels
+                // #######
+
+
+
+
+              }
+            })
+          }
+        } else {
+          alert('invalid selection of city')
         }
-      })
+
+      } else {
+        alert('invalid selection of holiday')
+      }
+
+
 
     }
 
     function selectHoliday() {
-      let selectedHoliday = $('#holiday-list').val();
 
-      if (selectedHoliday != 'h-placeholder') {
-        alert(selectedHoliday)
-        // maybe add loading prompt here
+      selectedHoliday = $('#holiday-list').val();
+      //console.log(time);
+      console.log(selectedHoliday);
 
-        // get the exact date
-        // format: 'year-month-day'
-        // 
-        //
-        //
+      if (selectedHoliday != 'h-placeholder' &&
+        selectedHoliday != null) {
+
+        if (selectedCity != 'c-placeholder' && selectedCity != null) {
+          var time = getCurrentDate()
+          let diff = dateDiff(selectedHoliday, time)
+          if (diff > 3) {
+            alert('The selected holiday is too far way to get weather condition')
+
+            showMsg(true);
+            const api_key = '51563523b41b41b3bd981420212804'
+            $.ajax({
+              type: 'GET',
+              crossDomain: true,
+              url: 'http://api.weatherapi.com/v1/current.json?key=' + api_key +
+                '&q=' + selectedCity,
+              dataType: 'JSON',
+              error: function () {
+                alert('Network error');
+              },
+              success: function (res) {
+                showMsg(false);
+                $('#weather-list').html('')
+                $('#weather-info').attr('style',
+                  'display:block;'); // pass the params to the weather card template
+                $.each(res.forecast.forecastday, function (index, item) {
+                  $('#weather-list').append('<li><weather-card date="' + item.date + '" condition="' +
+                    item.day.condition.text + '"iconURL="' + item.day.condition.icon + '" avgtemp="' + item
+                    .day.avgtemp_c +
+                    '" maxtemp="' + item.day.maxtemp_c + '" mintemp="' + item.day.mintemp_c + '" rain="' +
+                    item.day.daily_chance_of_rain + '" wind="' + item.day.maxwind_kph +
+                    '"></weather-card></li>')
+                })
+              }
+            })
+          } else if (diff < 0) {
+            alert('The holiday you choosed is overdue')
+            $('#weather-list').html('')
+
+          } else if (diff == 0) {
+            alert('display today\'s weather')
+
+            showMsg(true);
+            const api_key = '51563523b41b41b3bd981420212804'
+            $.ajax({
+              type: 'GET',
+              crossDomain: true,
+              url: 'http://api.weatherapi.com/v1/current.json?key=' + api_key +
+                '&q=' + selectedCity,
+              dataType: 'JSON',
+              error: function () {
+                alert('Network error');
+              },
+              success: function (res) {
+                showMsg(false);
+                $('#weather-list').html('')
+                $('#weather-info').attr('style',
+                  'display:block;'); // pass the params to the weather card template
+                //$.each(res.forecast.forecastday, function (index, item) {
+                $('#weather-list').append('<li><weather-card date="' + res.location.localtime + '" condition="' +
+                  res.current.condition.text + '"iconURL="' + res.current.condition.icon + '" avgtemp="' +
+                  res.current.temp_c +
+                  '" maxtemp="' + 'not available' + '" mintemp="' + 'not available' + '" rain="' +
+                  'not available' + '" wind="' + res.wind_kph +
+                  '"></weather-card></li>')
+                //})
+
+
+                // #######
+                // Get the information of available hotels
+                // #######
+
+
+
+              }
+            })
+          } else {
+            alert('display forecast')
+
+            // fetch for weather info
+            showMsg(true);
+            const api_key = '51563523b41b41b3bd981420212804'
+            const days = 7;
+            $.ajax({
+              type: 'GET',
+              crossDomain: true,
+              url: 'http://api.weatherapi.com/v1/forecast.json?key=' + api_key +
+                '&q=' + selectedCity + '&days=' + days,
+              dataType: 'JSON',
+              error: function () {
+                alert('Network error');
+              },
+              success: function (res) {
+                showMsg(false);
+                $('#weather-list').html('')
+                $('#weather-info').attr('style',
+                  'display:block;'); // pass the params to the weather card template
+                $.each(res.forecast.forecastday, function (index, item) {
+                  $('#weather-list').append('<li><weather-card date="' + item.date + '" condition="' +
+                    item.day.condition.text + '"iconURL="' + item.day.condition.icon + '" avgtemp="' + item
+                    .day.avgtemp_c +
+                    '" maxtemp="' + item.day.maxtemp_c + '" mintemp="' + item.day.mintemp_c + '" rain="' +
+                    item.day.daily_chance_of_rain + '" wind="' + item.day.maxwind_kph +
+                    '"></weather-card></li>')
+                })
+
+
+                // #######
+                // Get the information of available hotels
+                // #######
+
+
+
+
+              }
+            })
+          }
+        } else {
+          alert('invalid selection of city')
+        }
 
       } else {
-        alert('invalid selection')
+        alert('invalid selection of holiday')
       }
 
     }
+
+    function getCurrentDate() {
+      let now = new Date();
+      //let year = now.getFullYear(); 
+      let year = 2021;
+      let month = now.getMonth() + 1;
+      let date = now.getDate();
+
+      const result = year + '-' + month + '-' + date
+
+      return result;
+
+    }
+
+
+    function dateDiff(sDate1, sDate2) { // format: yyyy-mm-dd
+      var aDate, oDate1, oDate2, iDays
+      aDate = sDate1.split("-")
+      oDate1 = new Date(aDate[1] + '-' + aDate[2] + '-' + aDate[0]) //转换为xx-xx-xxxx格式  
+      aDate = sDate2.split("-")
+      oDate2 = new Date(aDate[1] + '-' + aDate[2] + '-' + aDate[0])
+      //iDays = parseInt(Math.abs(oDate1 - oDate2) / 1000 / 60 / 60 / 24) //把相差的毫秒数转换为天数  
+      iDays = parseInt((oDate1 - oDate2) / 1000 / 60 / 60 / 24)
+      return iDays
+    }
+
 
     // weather api base url
     //http://api.weatherunlocked.com/ or https://api.weatherunlocked.com/
@@ -627,25 +879,24 @@
       //alert('clicked');
       console.log('clicked');
 
+      //const api_key = 'c87d719883516b97659376147a87a98c'
+      //let city_name = 'Chongqing'
+      //let days = 5;
+
       const api_key = '51563523b41b41b3bd981420212804'
-      let city_name = 'Chongqing'
-      let days = 5;
+
+      const days = 7;
 
       $.ajax({
         type: 'GET',
         crossDomain: true,
-        url: 'http://api.weatherapi.com/v1/forecast.json?key=' + api_key + '&q=' + city_name + '&days=' + days,
-        /* headers: {
-          "Accept": "application/json",
-          "api-token": api_token,
-          "user-email": "ratch3t@foxmail.com"
-        }, */
+        url: 'http://api.weatherapi.com/v1/current.json?key=' + api_key +
+          '&q=' + 'Suzhou',
         dataType: 'JSON',
         error: function () {
-          alert('ERROR');
+          alert('Network error');
         },
         success: function (res) {
-
 
         }
       })
