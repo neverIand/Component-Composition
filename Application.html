@@ -24,20 +24,18 @@
       }
     }
 
-    // ES6 syntax
+    // template declaration, using ES6 syntax
+    /* Hotel Card Declaration */
     class WeatherCard extends HTMLElement {
       constructor() {
-        super(); // 继承的构造函数中必须要手动调用super()函数
+        super();
 
-        // 得到组件的模板内容
         const templateContent = document.querySelector('#weather-card-template').content;
 
-        // 创建组建的根元素：影子DOM节点
         const shadowRoot = this.attachShadow({
           mode: 'open'
         });
 
-        // 将模板节点添加到影子DOM节点中
         shadowRoot.appendChild(templateContent.cloneNode(true));
 
         const date = this.getAttribute('date');
@@ -51,39 +49,67 @@
 
         shadowRoot.querySelector('h2 span').innerHTML = date;
         shadowRoot.querySelector('h3').innerHTML = '<img class="icon" src="' + iconURL + '">' + condition;
-        shadowRoot.querySelector('#avgtemp').innerHTML = avgtemp + "&#8451;";
-        shadowRoot.querySelector('#maxtemp').innerHTML = maxtemp + "&#8451;";
-        shadowRoot.querySelector('#mintemp').innerHTML = mintemp + "&#8451;";
-        shadowRoot.querySelector('#rain').innerHTML = rain;
+        shadowRoot.querySelector('#avgtemp').innerHTML = avgtemp + " &#8451;";
+        shadowRoot.querySelector('#maxtemp').innerHTML = maxtemp + " &#8451;";
+        shadowRoot.querySelector('#mintemp').innerHTML = mintemp + " &#8451;";
+        shadowRoot.querySelector('#rain').innerHTML = rain + " &#37";
         shadowRoot.querySelector('#wind').innerHTML = wind + " km/h";
-
-
       }
     }
-
-    // template name, class name(mode)
     customElements.define('weather-card', WeatherCard);
+
+    /* Hotel Card Declaration */
+    class HotelCard extends HTMLElement {
+      constructor() {
+        super();
+
+        const templateContent = document.querySelector('#hotel-card-template').content;
+
+        const shadowRoot = this.attachShadow({
+          mode: 'open'
+        });
+
+        shadowRoot.appendChild(templateContent.cloneNode(true));
+
+        const name = this.getAttribute('name');
+        const rating = parseFloat(this.getAttribute('rating'));
+        const addr = this.getAttribute('addr');
+        const postalCode = this.getAttribute('postalCode');
+        const phone = this.getAttribute('phone');
+        const pic = this.getAttribute('pic');
+
+        shadowRoot.querySelector('h2').innerHTML = name;
+        shadowRoot.querySelector('h3').innerHTML = 'Rating: '
+        for (let i = 0; i < rating; i++) {
+          shadowRoot.querySelector('h3').innerHTML += '<span style="font-size: 16px; color: gold">&#9733;</span>';
+        }
+        shadowRoot.querySelector('#addr').innerHTML = addr;
+        shadowRoot.querySelector('#postalCode').innerHTML = postalCode;
+        shadowRoot.querySelector('#phone').innerHTML = phone;
+        shadowRoot.querySelector('#pic').innerHTML = '<img class="icon" src="' + pic + '">';
+      }
+    }
+    customElements.define('hotel-card', HotelCard);
   </script>
 </head>
 
 <body>
 
+  <!-- ################### -->
+  <!-- Weather Card Template -->
+  <!-- ################### -->
   <template id="weather-card-template">
-    <!-- 组建的样式 只对template内部的标签有效 -->
     <style>
       :root {
         /* font-size: 15px !important; */
-        --main-theme: rgb(100, 67, 173);
-        --sub-theme: rgb(150, 147, 206);
+        /* --main-theme: rgb(100, 67, 173);
+        --sub-theme: rgb(150, 147, 206); */
       }
 
       .weather-card {
         position: relative;
-        /* margin-top: 20px; */
         display: block;
-        /* max-width: 600px; */
         width: 520px;
-        /* height: 120px !important; */
         margin: 0 auto;
         color: black;
 
@@ -105,12 +131,12 @@
       }
 
       .tr-card h2 {
-        color: var(--main-theme);
+        /* color: var(--main-theme); */
         font-size: 18px !important;
       }
 
       .tr-card h3 {
-        color: var(--sub-theme);
+        /* color: var(--sub-theme); */
         font-size: 14px !important;
       }
 
@@ -128,7 +154,6 @@
       }
 
       .icon {
-
         width: 20px;
       }
     </style>
@@ -165,6 +190,125 @@
               <td>Max Wind Speed</td>
               <td id="wind"></td>
             </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <!-- ################### -->
+  <!-- Hotel Card Template -->
+  <!-- ################### -->
+  <template id="hotel-card-template">
+    <style>
+      :root {
+        /* font-size: 15px !important; */
+        /* --main-theme: rgb(100, 67, 173);
+        --sub-theme: rgb(150, 147, 206); */
+      }
+
+      .hotel-card {
+        display: block;
+        width: 520px;
+        margin: 0 auto;
+        color: black;
+
+      }
+
+      .hotel-card .tr-card {
+        padding: 10px;
+        font-family: Arial, Helvetica, sans-serif !important;
+        border: 2px solid black;
+        border-radius: 5px;
+        box-shadow: 0px 2px 30px -14px grey;
+        background-color: white;
+      }
+
+      .tr-card h2,
+      .tr-card h3 {
+        margin: 0;
+        font-weight: bold;
+      }
+
+      .tr-card h2 {
+        /* color: var(--main-theme); */
+        font-size: 18px !important;
+      }
+
+      .tr-card h3 {
+        /* color: var(--sub-theme); */
+        font-size: 14px !important;
+      }
+
+      .tr-card-body {
+        font-size: 16px !important;
+      }
+
+      .tr-card-body tr {
+        max-width: 200px;
+      }
+
+      h4 {
+        margin: 0;
+      }
+
+      table,
+      th,
+      td {
+        max-width: 540px;
+        margin-top: 10px;
+        padding: 5px;
+        border-collapse: collapse;
+        border: 1px solid black;
+      }
+
+      .icon {
+        width: 200px;
+      }
+    </style>
+
+    <div class="hotel-card">
+
+      <div class="tr-card">
+        <h2></h2>
+        <h3></h3>
+
+        <div class="tr-card-body">
+          <table>
+            <tr>
+              <td>
+                <h4>Address</h4>
+              </td>
+              <td rowspan="6" id="pic"></td>
+            </tr>
+
+            <tr>
+              <td id="addr"></td>
+            </tr>
+
+            <tr>
+              <td>
+                <h4>Postal Code</h4>
+              </td>
+
+            </tr>
+
+            <tr>
+              <td id="postalCode"></td>
+            </tr>
+
+            <tr>
+              <td>
+                <h4>Phone</h4>
+              </td>
+
+            </tr>
+
+            <tr>
+              <td id="phone"></td>
+            </tr>
+
+
           </table>
         </div>
       </div>
@@ -225,6 +369,7 @@
       width: 100vw;
       height: 100vh;
       background-color: rgba(255, 255, 255, 0.7);
+      /* Ensure the div is above the page */
       z-index: 101;
     }
 
@@ -232,6 +377,7 @@
     #loading-msg {
       padding: 20px;
       border: 1px solid black;
+      background-color: white;
       box-shadow: 0px 0px 200px 1px #878787;
     }
 
@@ -249,21 +395,31 @@
       z-index: 100;
     }
 
+    .input-area {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      border: 1px solid black;
+    }
+
     select {
       padding: 2px 5px;
       border-radius: 4px;
     }
 
 
-    #weather-list {
+    #weather-list,
+    #ac-list {
       list-style: none;
+      margin-top: 10px;
       padding-top: 10px;
-      max-height: 400px;
+      max-height: 338px;
       overflow-y: scroll;
-      border: 1px solid black;
+      border-top: 1px solid black;
+      border-bottom: 1px solid black;
     }
 
-    #weather-list li {
+    #weather-list li,
+    #ac-list li {
       margin-top: 20px;
     }
 
@@ -289,37 +445,38 @@
     <!-- 1a. get all the available countries -->
 
     <div id="app-form">
-      <h2>Select a Country or Region:</h2>
-      <select name="country" id="select-country" onchange="searchCountry();">
-        <option value="placeholder">Select a country</option>
-        <option value="CN&China">ChinaTest</option>
-      </select>
+      <div id="country-info" class="input-area">
+        <h2>Select a Country or Region:</h2>
+        <select name="country" id="select-country" onchange="searchCountry();">
+          <option value="placeholder">Select a country</option>
+          <option value="CN&China">ChinaTest</option>
+        </select>
+      </div>
 
 
-
-      <!-- Select the area of that country -->
-      <div id="area-info" style="display: none;">
-        <h2>Select the state or province</h2>
+      <!-- 2. Select the area of that country -->
+      <div id="area-info" style="display: none;" class="input-area">
+        <h2>Select a state or province</h2>
         <select name="area" id="area-list" onchange="selectArea();">
           <option value="a-placeholder">Select the area</option>
         </select>
       </div>
 
-      <div id="city-info" style="display: none;">
-        <h2>Select the city or subordinate district</h2>
+      <div id="city-info" style="display: none;" class="input-area">
+        <h2>Select a city or subordinate district</h2>
         <select name="city" id="city-list" onchange="selectCity();">
           <option value="c-placeholder">Select the city</option>
         </select>
       </div>
 
-      <div id="holiday-info" style="display: none;">
-        <h2>Holidays:</h2>
+      <div id="holiday-info" style="display: none;" class="input-area">
+        <h2>Public Holidays:</h2>
         <select name="holiday" id="holiday-list" onchange="selectHoliday();" style="max-width: 580px;">
           <option value="h-placeholder">Select a holiday</option>
         </select>
       </div>
 
-      <!-- Get the weather information of the selected area on that holiday -->
+      <!-- 3. Get the weather information of the selected area on that holiday -->
       <div id="weather-info" style="display: none;">
         <h2>Weather of the selected place</h2>
         <ul id="weather-list">
@@ -327,20 +484,23 @@
         </ul>
       </div>
 
-      <!-- Get the available short-term accommodation rental information... -->
+      <!-- 4. Get the available short-term accommodation rental information... -->
       <div id="ac-info" style="display: none;">
         <h2>Accommodation Rental Info</h2>
-        <ol id="ac-list">
+        <!-- This is the default setting of the api, in theory the type of the room (and more) can also be configured -->
+        <p>Below are hotels that can provide at least 1 room for 2 adult guests on the selected date. Hotel data is
+          sorted by distance from the nearest to far.</p>
+        <ul id="ac-list">
 
-        </ol>
+        </ul>
       </div>
 
     </div>
 
-    <button id="btn">TEST</button>
+    <!-- <button id="btn">TEST</button>
     <div class="content">
 
-    </div>
+    </div> -->
   </div>
 
   <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
@@ -348,9 +508,7 @@
 
   <script>
     // Some apis may need to regenerate key every day
-
     // https://calendarific.com/account
-
 
     // calendarific
     const countryURL = 'https://calendarific.com/api/v2/countries'
@@ -363,9 +521,15 @@
     var selectedHoliday = null;
     var selectedCity = null;
 
+    // longtitude and latitude of the selected city
+    // acquired by weather api
+    var lon = null;
+    var lat = null;
+
     // get all the available countries when the page loaded
+    // !This api has limitation on request number!
     document.addEventListener('DOMContentLoaded', (event) => {
-      console.log('loaded');
+      console.log('Page loaded');
 
       // $.ajax({
       //   type: 'GET',
@@ -373,7 +537,8 @@
       //   data: countryData,
       //   dataType: 'JSON',
       //   error: function () {
-      //     alert('Network Error');
+      //   alert(Network Error: Failed getting available countries, please try again');
+      //     showMsg(false);
       //   },
       //   success: function (res) {
       //     $.each(res.response.countries, function (index, item) {
@@ -390,6 +555,8 @@
     // get all the available countries and generate options
     function searchCountry() {
       // iso-3166 code
+      $('#holiday-list').html('');
+      $('#holiday-info').attr('style', 'display:none;');
       var selectedData = $('#select-country').val();
 
       // this is an array with format: iso3166code&countryname
@@ -402,15 +569,17 @@
       // https://www.universal-tutorial.com/rest-apis/free-rest-api-for-country-state-city
       // token: i7c8mYeYUSr9OMq0jSIk8MJdFAHqRpZtXZ_ec7FdClkKgWnG_vqueBorQq-9Y5o-kpg
 
-
       if ($('#select-country').val() != 'placeholder') {
-        //alert(selectedCountry);
-        // maybe add loading prompt here
+
         showMsg(true);
-        $('#area-list').html('')
+        $('#area-list').html('');
         $('#area-info').attr('style', 'display:none;');
-        $('#city-list').html('')
+        $('#city-list').html('');
         $('#city-info').attr('style', 'display:none;');
+        $('#weather-list').html('');
+        $('#weather-info').attr('style', 'display:none;');
+        $('#ac-list').html('');
+        $('#ac-info').attr('style', 'display:none;');
 
         // get all the areas (cities) of this country
         $.ajax({
@@ -423,7 +592,8 @@
           },
           dataType: 'JSON',
           error: function () {
-            alert('Network Error: Failed getting the access token for areas');
+            alert('Network Error: Failed getting the access token for areas, please try again');
+            showMsg(false);
           },
           success: function (res) {
 
@@ -438,7 +608,8 @@
               },
               dataType: 'JSON',
               error: function () {
-                alert('Network Error: Failed getting areas');
+                alert('Network Error: Failed getting areas, please try again');
+                showMsg(false);
               },
               success: function (res) {
                 // remove the loading prompt
@@ -462,16 +633,20 @@
     }
 
     function selectArea() {
-      $('#weather-list').html('')
+      $('#weather-list').html('');
       $('#weather-info').attr('style', 'display:none;');
-      $('#city-list').html('')
+      $('#city-list').html('');
       $('#city-info').attr('style', 'display:none;');
+
+      $('#holiday-list').html('');
+      $('#holiday-info').attr('style', 'display:none;');
+      $('#ac-list').html('');
+      $('#ac-info').attr('style', 'display:none;');
       let selectedArea = $('#area-list').val();
 
       // get the exact city
       if (selectedArea != 'a-placeholder') {
-        //alert(selectedArea)
-        // maybe add loading prompt here
+
         showMsg(true);
 
         $.ajax({
@@ -484,7 +659,8 @@
           },
           dataType: 'JSON',
           error: function () {
-            alert('Network Error: Failed getting the access token for areas');
+            alert('Network Error: Failed getting the access token for areas, please try again');
+            showMsg(false);
           },
           success: function (res) {
 
@@ -499,10 +675,11 @@
               },
               dataType: 'JSON',
               error: function () {
-                alert('Network Error: Failed getting cities');
+                alert('Network Error: Failed getting cities, please try again');
+                showMsg(false);
               },
               success: function (res) {
-                // remove the loading prompt
+
                 showMsg(false)
 
                 if (res.length > 1) {
@@ -513,7 +690,45 @@
                       '<option value="' + item.city_name + '">' + item.city_name + '</option>')
                   })
                 } else {
-                  alert('this area does not have subordinate city or district')
+                  selectedCity = selectedArea;
+                  alert('This area does not have subordinate city or district. Please continue.')
+
+                  let year = 2021;
+
+                  const cholidaysURL = 'https://calendarific.com/api/v2/holidays'
+                  const colidayData =
+                    'https://calendarific.com/api/v2/holidays?&api_key=f92699ea84a0a64aa0b3d7f605f8a36d081c00a6' +
+                    '&country=' + selectedCountry + '&year=' + year;
+                  $.ajax({
+                    type: 'GET',
+                    url: cholidaysURL,
+                    data: colidayData,
+                    dataType: 'JSON',
+                    crossDomain: true,
+                    error: function () {
+                      alert('Network Error: Failed getting holiday info, please try again');
+                      showMsg(false);
+                    },
+                    success: function (res) {
+
+                      showMsg(false);
+                      // now there is holiday date and city info
+                      $('#holiday-list').html(
+                        '<option value="h-placeholder">Select a holiday</option>'
+                      )
+
+                      $('#holiday-info').attr('style', 'display:block;');
+
+                      $.each(res.response.holidays, function (index, item) {
+                        $('#holiday-list').append(
+                          '<option value="' + item.date.iso + '">' + item.name + ' | ' + item
+                          .date
+                          .iso + '</option>')
+
+                      })
+
+                    }
+                  })
                 }
               }
             })
@@ -535,8 +750,12 @@
     function selectCity() {
       $('#weather-list').html('')
       $('#weather-info').attr('style', 'display:none;');
-      selectedCity = $('#city-list').val();
+      $('#holiday-list').html('');
+      $('#holiday-info').attr('style', 'display:none;');
+      $('#ac-list').html('');
+      $('#ac-info').attr('style', 'display:none;');
 
+      selectedCity = $('#city-list').val();
 
       // the user can now select the holiday
       console.log(selectedCity)
@@ -557,14 +776,13 @@
           dataType: 'JSON',
           crossDomain: true,
           error: function () {
-            alert('Network Error');
+            alert('Network Error: Failed getting holiday info, please try again');
+            showMsg(false);
           },
           success: function (res) {
 
-
             showMsg(false);
             // now there is holiday date and city info
-
 
             $('#holiday-list').html(
               '<option value="h-placeholder">Select a holiday</option>') // remove the previous content
@@ -573,7 +791,8 @@
 
             $.each(res.response.holidays, function (index, item) {
               $('#holiday-list').append(
-                '<option value="' + item.date.iso + '">' + item.name + '</option>')
+                '<option value="' + item.date.iso + '">' + item.name + ' | ' + item.date
+                .iso + '</option>')
 
             })
 
@@ -589,12 +808,14 @@
 
     function selectHoliday() {
 
+      $('#ac-list').html('');
+      $('#ac-info').attr('style', 'display:none;');
+
       selectedHoliday = $('#holiday-list').val();
       //console.log(time);
       console.log(selectedHoliday);
 
       if (selectedHoliday != 'h-placeholder') {
-
 
         let time = getCurrentDate()
         let diff = dateDiff(selectedHoliday, time)
@@ -631,14 +852,18 @@
               '&q=' + selectedCity,
             dataType: 'JSON',
             error: function () {
-              alert('Network error');
+              alert('Network error: Failed getting weather info, please try again');
+              showMsg(false);
             },
             success: function (res) {
+              lat = res.location.lat;
+              lon = res.location.lon;
+              console.log('latitude: ' + lat + ' longtitude: ' + lon);
               showMsg(false);
               $('#weather-list').html('')
               $('#weather-info').attr('style',
                 'display:block;'); // pass the params to the weather card template
-              //$.each(res.forecast.forecastday, function (index, item) {
+              
               $('#weather-list').append('<li><weather-card date="' + res.location.localtime +
                 '" condition="' +
                 res.current.condition.text + '"iconURL="' + res.current.condition.icon + '" avgtemp="' +
@@ -646,12 +871,73 @@
                 '" maxtemp="' + 'not available' + '" mintemp="' + 'not available' + '" rain="' +
                 'not available' + '" wind="' + res.wind_kph +
                 '"></weather-card></li>')
-              //})
 
               // #######
               // Get the information of available hotels
               // #######
+              showMsg(true);
+              $.ajax({
+                type: 'POST',
+                crossDomain: true,
+                contentType: 'application/x-www-form-urlencoded',
+                url: 'https://test.api.amadeus.com/v1/security/oauth2/token',
 
+                data: {
+                  'grant_type': 'client_credentials',
+                  'client_id': 'zxJ9K59fVIoWH2KPvSl2PXq6yTQ8qOgN',
+                  'client_secret': 'sGL8iLgjn8C7yXME'
+                },
+                dataType: 'JSON',
+                error: function () {
+                  alert('Network Error: Failed getting token for hotel info, please try again');
+                  showMsg(false);
+                },
+                success: function (res) {
+                  const access_token = res.access_token;
+
+                  $.ajax({
+                    type: 'GET',
+                    crossDomain: true,
+                    url: 'https://test.api.amadeus.com/v2/shopping/hotel-offers?latitude=' + lat +
+                      '&longitude=' + lon + '&checkInDate=' + selectedHoliday +
+                      '&roomQuantity=1&adults=2&radius=25&radiusUnit=KM&paymentPolicy=NONE&includeClosed=true&bestRateOnly=false&view=FULL&sort=DISTANCE',
+                    headers: {
+                      'Authorization': 'Bearer ' + access_token
+                    },
+                    dataType: 'JSON',
+                    error: function () {
+                      alert('Network Error: Failed getting hotel info, please try again');
+                      showMsg(false);
+                    },
+                    success: function (res) {
+                      showMsg(false);
+                      $('#ac-list').html('')
+                      $('#ac-info').attr('style', 'display:block;');
+                      $.each(res.data, function (index, item) {
+
+                        // for now it will only display hotels that are available
+                        if (res.data.length == 0) {
+                          $('#ac-list').append(
+                            '<li><h2>Sorry, currently there is no available hotel in this area.</h2></li>'
+                          )
+                        } else {
+                          if (item.available == true) {
+                            $('#ac-list').append('<li><hotel-card name="' + item.hotel.name +
+                              '" rating="' + item.hotel.rating + '" addr="' + item.hotel.address
+                              .lines.join(', ') +
+                              '" postalCode="' + item.hotel.address.postalCode + '" phone="' +
+                              item.hotel.contact
+                              .phone + '" pic="' + item.hotel.media[0].uri +
+                              '"></hotel-card></li>')
+                          }
+                        }
+
+
+                      })
+                    }
+                  })
+                }
+              })
 
 
             }
@@ -660,7 +946,7 @@
           // Case 4: The holiday is less than 4 days away
           // #######
         } else {
-          alert('display forecast')
+          console.log('display forecast')
 
           // fetch for weather info
           showMsg(true);
@@ -673,13 +959,18 @@
               '&q=' + selectedCity + '&days=' + days,
             dataType: 'JSON',
             error: function () {
-              alert('Network error');
+              alert('Network Error: Failed getting weather info, please try again');
+              showMsg(false);
             },
             success: function (res) {
+              lat = res.location.lat;
+              lon = res.location.lon;
+              console.log('latitude: ' + lat + ' longtitude: ' + lon);
+
               showMsg(false);
               $('#weather-list').html('')
-              $('#weather-info').attr('style',
-                'display:block;'); // pass the params to the weather card template
+              $('#weather-info').attr('style', 'display:block;');
+              // pass the params to the weather card template
               $.each(res.forecast.forecastday, function (index, item) {
                 $('#weather-list').append('<li><weather-card date="' + item.date + '" condition="' +
                   item.day.condition.text + '"iconURL="' + item.day.condition.icon + '" avgtemp="' +
@@ -691,15 +982,73 @@
                   '"></weather-card></li>')
               })
 
-
-
               // #######
               // Get the information of available hotels
               // #######
 
+              showMsg(true);
+              $.ajax({
+                type: 'POST',
+                crossDomain: true,
+                contentType: 'application/x-www-form-urlencoded',
+                url: 'https://test.api.amadeus.com/v1/security/oauth2/token',
+
+                data: {
+                  'grant_type': 'client_credentials',
+                  'client_id': 'zxJ9K59fVIoWH2KPvSl2PXq6yTQ8qOgN',
+                  'client_secret': 'sGL8iLgjn8C7yXME'
+                },
+                dataType: 'JSON',
+                error: function () {
+                  alert('Network Error: Failed getting token for hotel info, please try again');
+                  showMsg(false);
+                },
+                success: function (res) {
+                  const access_token = res.access_token;
+
+                  $.ajax({
+                    type: 'GET',
+                    crossDomain: true,
+                    url: 'https://test.api.amadeus.com/v2/shopping/hotel-offers?latitude=' + lat +
+                      '&longitude=' + lon + '&checkInDate=' + selectedHoliday +
+                      '&roomQuantity=1&adults=2&radius=25&radiusUnit=KM&paymentPolicy=NONE&includeClosed=true&bestRateOnly=false&view=FULL&sort=DISTANCE',
+                    headers: {
+                      'Authorization': 'Bearer ' + access_token
+                    },
+                    dataType: 'JSON',
+                    error: function () {
+                      alert('Network Error: Failed getting hotel info, please try again');
+                      showMsg(false);
+                    },
+                    success: function (res) {
+                      showMsg(false);
+                      $('#ac-list').html('')
+                      $('#ac-info').attr('style', 'display:block;');
+                      $.each(res.data, function (index, item) {
+
+                        // for now it will only display hotels that are available
+                        if (res.data.length == 0) {
+                          $('#ac-list').append(
+                            '<li><h2>Sorry, currently there is no available hotel in this area.</h2></li>'
+                          )
+                        } else {
+                          if (item.available == true) {
+                            $('#ac-list').append('<li><hotel-card name="' + item.hotel.name +
+                              '" rating="' + item.hotel.rating + '" addr="' + item.hotel.address
+                              .lines.join(', ') +
+                              '" postalCode="' + item.hotel.address.postalCode + '" phone="' +
+                              item.hotel.contact
+                              .phone + '" pic="' + item.hotel.media[0].uri +
+                              '"></hotel-card></li>')
+                          }
+                        }
 
 
-
+                      })
+                    }
+                  })
+                }
+              })
             }
           })
         }
@@ -728,10 +1077,10 @@
     function dateDiff(sDate1, sDate2) { // format: yyyy-mm-dd
       var aDate, oDate1, oDate2, iDays
       aDate = sDate1.split("-")
-      oDate1 = new Date(aDate[1] + '-' + aDate[2] + '-' + aDate[0]) //转换为xx-xx-xxxx格式  
+      oDate1 = new Date(aDate[1] + '-' + aDate[2] + '-' + aDate[0]) //convert to format: xx-xx-xxxx
       aDate = sDate2.split("-")
       oDate2 = new Date(aDate[1] + '-' + aDate[2] + '-' + aDate[0])
-      //iDays = parseInt(Math.abs(oDate1 - oDate2) / 1000 / 60 / 60 / 24) //把相差的毫秒数转换为天数  
+      //iDays = parseInt(Math.abs(oDate1 - oDate2) / 1000 / 60 / 60 / 24)
       iDays = parseInt((oDate1 - oDate2) / 1000 / 60 / 60 / 24)
       return iDays
     }
@@ -750,21 +1099,45 @@
       //let city_name = 'Chongqing'
       //let days = 5;
 
-      const api_key = '51563523b41b41b3bd981420212804'
+      //const api_key = '51563523b41b41b3bd981420212804'
 
-      const days = 7;
 
+      // request for a token for hoyel info
       $.ajax({
-        type: 'GET',
+        type: 'POST',
         crossDomain: true,
-        url: 'http://api.weatherapi.com/v1/current.json?key=' + api_key +
-          '&q=' + 'Suzhou',
+        contentType: 'application/x-www-form-urlencoded',
+        url: 'https://test.api.amadeus.com/v1/security/oauth2/token',
+
+        data: {
+          'grant_type': 'client_credentials',
+          'client_id': 'zxJ9K59fVIoWH2KPvSl2PXq6yTQ8qOgN',
+          'client_secret': 'sGL8iLgjn8C7yXME'
+        },
         dataType: 'JSON',
         error: function () {
-          alert('Network error');
+          alert('Network error, please try again');
+          showMsg(false);
         },
         success: function (res) {
+          const access_token = res.access_token;
 
+          $.ajax({
+            type: 'GET',
+            crossDomain: true,
+            url: 'https://test.api.amadeus.com/v2/shopping/hotel-offers?latitude=33.64&longitude=116.98&checkInDate=2021-04-30&roomQuantity=1&adults=2&radius=20&radiusUnit=KM&paymentPolicy=NONE&includeClosed=false&bestRateOnly=false&view=FULL&sort=NONE',
+            headers: {
+              'Authorization': 'Bearer ' + access_token
+            },
+            dataType: 'JSON',
+            error: function () {
+              alert('Network error, please try again');
+              showMsg(false);
+            },
+            success: function (res) {
+
+            }
+          })
         }
       })
     })

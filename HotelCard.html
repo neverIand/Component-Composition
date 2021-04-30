@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel Card Template</title>
+
+</head>
+
+<body>
+
+  <hotel-card name="name" rating="5" addr="addr" postcode="postcode" phone="phone"
+    pic="http://uat.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/05D4A79DF80742DDB7B3D69B1B59D5D0">
+  </hotel-card>
+
+  <template id="hotel-card-template">
+
+    <!-- 组建的样式 只对template内部的标签有效 -->
+    <style>
+      :root {
+        /* font-size: 15px !important; */
+        --main-theme: rgb(100, 67, 173);
+        --sub-theme: rgb(150, 147, 206);
+      }
+
+      .hotel-card {
+        display: block;
+        /* max-width: 600px; */
+        /* height: 120px !important; */
+        margin: 0 auto;
+        color: black;
+
+      }
+
+      .hotel-card .tr-card {
+        padding: 10px;
+        font-family: Arial, Helvetica, sans-serif !important;
+        border: 2px solid black;
+        border-radius: 5px;
+        box-shadow: 0px 2px 30px -14px grey;
+        background-color: white;
+      }
+
+      .tr-card h2,
+      .tr-card h3 {
+        margin: 0;
+        font-weight: bold;
+      }
+
+      .tr-card h2 {
+        color: var(--main-theme);
+        font-size: 18px !important;
+      }
+
+      .tr-card h3 {
+        color: var(--sub-theme);
+        font-size: 14px !important;
+      }
+
+      .tr-card-body {
+        font-size: 16px !important;
+      }
+
+      table,
+      th,
+      td {
+        max-width: 540px;
+        margin-top: 10px;
+        padding: 5px;
+        border-collapse: collapse;
+        border: 1px solid black;
+      }
+
+      .icon {
+        width: 200px;
+      }
+    </style>
+
+    <div class="hotel-card">
+
+      <div class="tr-card">
+        <h2></h2>
+        <h3></h3>
+
+        <div class="tr-card-body">
+          <table>
+            <tr>
+              <td>Address</td>
+              <td rowspan="6" id="pic"></td>
+            </tr>
+
+            <tr>
+              <td id="addr"></td>
+            </tr>
+
+            <tr>
+              <td>Postcode</td>
+
+            </tr>
+
+            <tr>
+              <td id="postcode"></td>
+            </tr>
+
+            <tr>
+              <td>Phone</td>
+
+            </tr>
+
+            <tr>
+              <td id="phone"></td>
+            </tr>
+
+
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+  </template>
+
+  <script>
+    // ES6 syntax
+    class HotelCard extends HTMLElement {
+      constructor() {
+        super();
+
+        const templateContent = document.querySelector('#hotel-card-template').content;
+
+        const shadowRoot = this.attachShadow({
+          mode: 'open'
+        });
+
+        // 将模板节点添加到影子DOM节点中
+        shadowRoot.appendChild(templateContent.cloneNode(true));
+
+        // name=""
+        // rating=""
+        // addr=""
+        // postcode=""
+        // phone=""
+        // pic=""
+
+        const name = this.getAttribute('name');
+        const rating = parseFloat(this.getAttribute('rating'));
+        const addr = this.getAttribute('addr');
+        const postcode = this.getAttribute('postcode');
+        const phone = this.getAttribute('phone');
+        const pic = this.getAttribute('pic');
+
+        shadowRoot.querySelector('h2').innerHTML = name;
+        shadowRoot.querySelector('h3').innerHTML = rating + ' '
+        for (let i = 0; i < rating; i++) {
+          shadowRoot.querySelector('h3').innerHTML += '<span style="font-size: 16px; color: gold">&#9733;</span>';
+        }
+        shadowRoot.querySelector('#addr').innerHTML = addr;
+        shadowRoot.querySelector('#postcode').innerHTML = postcode;
+        shadowRoot.querySelector('#phone').innerHTML = phone;
+        shadowRoot.querySelector('#pic').innerHTML = '<img class="icon" src="' + pic + '">';
+
+
+
+      }
+    }
+
+    // template name, class name(mode)
+    customElements.define('hotel-card', HotelCard);
+  </script>
+
+</body>
+
+</html>
