@@ -232,6 +232,7 @@
     #loading-msg {
       padding: 20px;
       border: 1px solid black;
+      box-shadow: 0px 0px 200px 1px #878787;
     }
 
     .fa.fa-circle-o-notch {
@@ -243,9 +244,16 @@
       margin: 10px auto;
       padding: 10px;
       width: 600px;
-      border: 1px solid black;
+      border: 1px solid #acacac;
+      box-shadow: 0px 0px 6px 1px #acacac;
       z-index: 100;
     }
+
+    select {
+      padding: 2px 5px;
+      border-radius: 4px;
+    }
+
 
     #weather-list {
       list-style: none;
@@ -391,13 +399,6 @@
       console.log('selectedCountry: ' + selectedCountry);
       console.log('countryName: ' + countryName);
 
-      // let year = 2021;
-
-      // const cholidaysURL = 'https://calendarific.com/api/v2/holidays'
-      // const colidayData = 'https://calendarific.com/api/v2/holidays?&api_key=f92699ea84a0a64aa0b3d7f605f8a36d081c00a6' +
-      //   '&country=' + selectedCountry + '&year=' + year;
-
-
       // https://www.universal-tutorial.com/rest-apis/free-rest-api-for-country-state-city
       // token: i7c8mYeYUSr9OMq0jSIk8MJdFAHqRpZtXZ_ec7FdClkKgWnG_vqueBorQq-9Y5o-kpg
 
@@ -410,37 +411,6 @@
         $('#area-info').attr('style', 'display:none;');
         $('#city-list').html('')
         $('#city-info').attr('style', 'display:none;');
-
-        // //get all the holidays of this country
-        // $.ajax({
-        //   type: 'GET',
-        //   url: cholidaysURL,
-        //   data: colidayData,
-        //   dataType: 'JSON',
-        //   crossDomain: true,
-        //   error: function () {
-        //     alert('Network Error');
-        //   },
-        //   success: function (res) {
-        //     // remove the loading prompt
-        //     // most of the time it will load faster than city info
-        //     // need a better way to close the prompt
-        //     showMsg(false);
-
-
-        //     $('#holiday-list').html(
-        //       '<option value="h-placeholder">Select a holiday</option>') // remove the previous content
-
-        //     //$('#holiday-info').attr('style', 'display:block;');
-
-        //     $.each(res.response.holidays, function (index, item) {
-        //       $('#holiday-list').append(
-        //         '<option value="' + item.date.iso + '">' + item.name + '</option>')
-
-        //     })
-
-        //   }
-        //})
 
         // get all the areas (cities) of this country
         $.ajax({
@@ -636,37 +606,6 @@
           alert('The selected holiday is too far way to get weather condition')
           $('#weather-list').html('')
           $('#weather-info').attr('style', 'display:none;');
-          // showMsg(true);
-          // const api_key = '51563523b41b41b3bd981420212804'
-          // $.ajax({
-          //   type: 'GET',
-          //   crossDomain: true,
-          //   url: 'http://api.weatherapi.com/v1/current.json?key=' + api_key +
-          //     '&q=' + selectedCity,
-          //   dataType: 'JSON',
-          //   error: function () {
-          //     alert('Network error');
-          //   },
-          //   success: function (res) {
-          //     showMsg(false);
-
-          //     // allow to choose holiday after the city is selected
-          //     //$('#holiday-info').attr('style', 'display:block;');
-
-
-
-          //     $('#weather-list').html('')
-          //     $('#weather-info').attr('style',
-          //       'display:block;'); // pass the params to the weather card template
-          //     $('#weather-list').append('<li><weather-card date="' + res.location.localtime +
-          //       '" condition="' +
-          //       res.current.condition.text + '"iconURL="' + res.current.condition.icon + '" avgtemp="' +
-          //       res.current.temp_c +
-          //       '" maxtemp="' + 'not available' + '" mintemp="' + 'not available' + '" rain="' +
-          //       'not available' + '" wind="' + res.wind_kph +
-          //       '"></weather-card></li>')
-          //   }
-          // })
 
           // #######
           // Case 2: The holiday passed already
