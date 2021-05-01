@@ -420,7 +420,8 @@
 
     #weather-list li,
     #ac-list li {
-      margin-top: 20px;
+      margin-top: 10px;
+      margin-bottom: 10px;
     }
 
     h2 {
@@ -841,7 +842,7 @@
           // Case 3: The holiday is the day selected
           // #######
         } else if (diff == 0) {
-          alert('display today\'s weather')
+          console.log('display today\'s weather')
 
           showMsg(true);
           const api_key = '51563523b41b41b3bd981420212804'
@@ -863,13 +864,13 @@
               $('#weather-list').html('')
               $('#weather-info').attr('style',
                 'display:block;'); // pass the params to the weather card template
-              
+
               $('#weather-list').append('<li><weather-card date="' + res.location.localtime +
                 '" condition="' +
                 res.current.condition.text + '"iconURL="' + res.current.condition.icon + '" avgtemp="' +
                 res.current.temp_c +
-                '" maxtemp="' + 'not available' + '" mintemp="' + 'not available' + '" rain="' +
-                'not available' + '" wind="' + res.wind_kph +
+                '" maxtemp="' + 'not available yet' + '" mintemp="' + 'not available yet' + '" rain="' +
+                res.current.cloud + '" wind="' + res.current.wind_kph +
                 '"></weather-card></li>')
 
               // #######
@@ -913,15 +914,17 @@
                       showMsg(false);
                       $('#ac-list').html('')
                       $('#ac-info').attr('style', 'display:block;');
-                      $.each(res.data, function (index, item) {
+                      let counter = 0; // count available hotel
 
+                      $.each(res.data, function (index, item) {
                         // for now it will only display hotels that are available
                         if (res.data.length == 0) {
                           $('#ac-list').append(
-                            '<li><h2>Sorry, currently there is no available hotel in this area.</h2></li>'
+                            '<li style="padding: 10px;"><h2>Sorry, currently there is no available hotel in this area.</h2></li>'
                           )
                         } else {
                           if (item.available == true) {
+                            counter++;
                             $('#ac-list').append('<li><hotel-card name="' + item.hotel.name +
                               '" rating="' + item.hotel.rating + '" addr="' + item.hotel.address
                               .lines.join(', ') +
@@ -931,9 +934,13 @@
                               '"></hotel-card></li>')
                           }
                         }
-
-
                       })
+
+                      if (counter == 0) {
+                        $('#ac-list').append(
+                          '<li style="padding: 10px;"><h2>Sorry, currently there is no available hotel in this area.</h2></li>'
+                        )
+                      }
                     }
                   })
                 }
@@ -1024,15 +1031,18 @@
                       showMsg(false);
                       $('#ac-list').html('')
                       $('#ac-info').attr('style', 'display:block;');
-                      $.each(res.data, function (index, item) {
 
+                      let counter = 0; // count available hotel
+
+                      $.each(res.data, function (index, item) {
                         // for now it will only display hotels that are available
                         if (res.data.length == 0) {
                           $('#ac-list').append(
-                            '<li><h2>Sorry, currently there is no available hotel in this area.</h2></li>'
+                            '<li style="padding: 10px;"><h2>Sorry, currently there is no available hotel in this area.</h2></li>'
                           )
                         } else {
                           if (item.available == true) {
+                            counter++;
                             $('#ac-list').append('<li><hotel-card name="' + item.hotel.name +
                               '" rating="' + item.hotel.rating + '" addr="' + item.hotel.address
                               .lines.join(', ') +
@@ -1042,9 +1052,14 @@
                               '"></hotel-card></li>')
                           }
                         }
-
-
                       })
+
+                      if (counter == 0) {
+                        $('#ac-list').append(
+                          '<li style="padding: 10px;"><h2>Sorry, currently there is no available hotel in this area.</h2></li>'
+                        )
+                      }
+
                     }
                   })
                 }
