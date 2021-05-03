@@ -532,24 +532,24 @@
     document.addEventListener('DOMContentLoaded', (event) => {
       console.log('Page loaded');
 
-      // $.ajax({
-      //   type: 'GET',
-      //   url: countryURL,
-      //   data: countryData,
-      //   dataType: 'JSON',
-      //   error: function () {
-      //   alert(Network Error: Failed getting available countries, please try again');
-      //     showMsg(false);
-      //   },
-      //   success: function (res) {
-      //     $.each(res.response.countries, function (index, item) {
-      //       $('#select-country').append(
-      //         '<option value="' + item['iso-3166'] + '&' + item.country_name + '">' + item
-      //         .country_name + '</option>')
-      //     })
+      $.ajax({
+        type: 'GET',
+        url: countryURL,
+        data: countryData,
+        dataType: 'JSON',
+        error: function () {
+          alert('Network Error: Failed getting available countries, please try again');
+          showMsg(false);
+        },
+        success: function (res) {
+          $.each(res.response.countries, function (index, item) {
+            $('#select-country').append(
+              '<option value="' + item['iso-3166'] + '&' + item.country_name + '">' + item
+              .country_name + '</option>')
+          })
 
-      //   }
-      // })
+        }
+      })
     });
 
 
@@ -825,16 +825,90 @@
         // Case 1: The holiday is too far away
         // #######
         if (diff > 3) {
-          alert('The selected holiday is too far way to get weather condition')
+          alert('The selected holiday is too far way to get weather condition, only available hotels will be displayed')
           $('#weather-list').html('')
           $('#weather-info').attr('style', 'display:none;');
+
+
+          // #######
+          // Get the information of available hotels
+          // #######
+          showMsg(true);
+          $.ajax({
+            type: 'POST',
+            crossDomain: true,
+            contentType: 'application/x-www-form-urlencoded',
+            url: 'https://test.api.amadeus.com/v1/security/oauth2/token',
+
+            data: {
+              'grant_type': 'client_credentials',
+              'client_id': 'zxJ9K59fVIoWH2KPvSl2PXq6yTQ8qOgN',
+              'client_secret': 'sGL8iLgjn8C7yXME'
+            },
+            dataType: 'JSON',
+            error: function () {
+              alert('Network Error: Failed getting token for hotel info, please try again');
+              showMsg(false);
+            },
+            success: function (res) {
+              const access_token = res.access_token;
+
+              $.ajax({
+                type: 'GET',
+                crossDomain: true,
+                url: 'https://test.api.amadeus.com/v2/shopping/hotel-offers?latitude=' + lat +
+                  '&longitude=' + lon + '&checkInDate=' + selectedHoliday +
+                  '&roomQuantity=1&adults=2&radius=25&radiusUnit=KM&paymentPolicy=NONE&includeClosed=true&bestRateOnly=false&view=FULL&sort=DISTANCE',
+                headers: {
+                  'Authorization': 'Bearer ' + access_token
+                },
+                dataType: 'JSON',
+                error: function () {
+                  alert('Network Error: Failed getting hotel info, please try again');
+                  showMsg(false);
+                },
+                success: function (res) {
+                  showMsg(false);
+                  $('#ac-list').html('')
+                  $('#ac-info').attr('style', 'display:block;');
+                  let counter = 0; // count available hotel
+
+                  $.each(res.data, function (index, item) {
+                    // for now it will only display hotels that are available
+                    if (res.data.length == 0) {
+                      $('#ac-list').append(
+                        '<li style="padding: 10px;"><h2>Sorry, currently there is no available hotel in this area.</h2></li>'
+                      )
+                    } else {
+                      if (item.available == true) {
+                        counter++;
+                        $('#ac-list').append('<li><hotel-card name="' + item.hotel.name +
+                          '" rating="' + item.hotel.rating + '" addr="' + item.hotel.address
+                          .lines.join(', ') +
+                          '" postalCode="' + item.hotel.address.postalCode + '" phone="' +
+                          item.hotel.contact
+                          .phone + '" pic="' + item.hotel.media[0].uri +
+                          '"></hotel-card></li>')
+                      }
+                    }
+                  })
+
+                  if (counter == 0) {
+                    $('#ac-list').append(
+                      '<li style="padding: 10px;"><h2>Sorry, currently there is no available hotel in this area.</h2></li>'
+                    )
+                  }
+                }
+              })
+            }
+          })
 
           // #######
           // Case 2: The holiday passed already
           // #######
         } else if (diff < 0) {
 
-          alert('The holiday you choosed is overdue')
+          alert('The holiday you choosed is overdue, cannot get weather info and available hotel')
           $('#weather-list').html('')
           $('#weather-info').attr('style', 'display:none;');
 
@@ -1117,7 +1191,7 @@
       //const api_key = '51563523b41b41b3bd981420212804'
 
 
-      // request for a token for hoyel info
+      // request for a token for hotel info
       $.ajax({
         type: 'POST',
         crossDomain: true,
@@ -1131,7 +1205,7 @@
         },
         dataType: 'JSON',
         error: function () {
-          alert('Network error, please try again');
+          alert('Network error: Failed getting token for hotel info, please try again');
           showMsg(false);
         },
         success: function (res) {
