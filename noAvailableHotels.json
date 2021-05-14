@@ -1,0 +1,1832 @@
+{
+  "data": [{
+    "type": "hotel-offers",
+    "hotel": {
+      "type": "hotel",
+      "hotelId": "HLSZV429",
+      "chainCode": "HL",
+      "dupeId": "700191094",
+      "name": "DOUBLETREE BY HILTON ANHUI - SUZHOU",
+      "rating": "4",
+      "cityCode": "SZV",
+      "latitude": 33.63942,
+      "longitude": 116.9853,
+      "hotelDistance": {
+        "distance": 0.5,
+        "distanceUnit": "KM"
+      },
+      "address": {
+        "lines": ["46429 SAN BA STREET"],
+        "postalCode": "234000",
+        "cityName": "SUZHOU",
+        "countryCode": "CN"
+      },
+      "contact": {
+        "phone": "86-557-6681999",
+        "fax": "86-557-6630666"
+      },
+      "amenities": ["BUSINESS_CENTER", "MEETING_ROOMS", "COFFEE_SHOP", "RESTAURANT", "SERVICE_DOGS_ALLOWED", "ACCESSIBLE_PARKING", "BEAUTY_PARLOUR", "CAR_RENTAL", "EXCHANGE_FACILITIES", "EXECUTIVE_FLOOR", "GIFT_SHOP", "LAUNDRY_SERVICE", "MASSAGE", "PARKING", "HAIRDRESSER", "SWIMMING_POOL", "AIR_CONDITIONING", "HAIR_DRYER", "MINIBAR", "MOVIE_CHANNELS", "NON_SMOKING_ROOMS", "PC_HOOKUP_IN_ROOM", "DIRECT_DIAL_PHONE", "TELEVISION", "FIRST_AID_STAF", "INTERIOR_ROOM_ENTRY", "EMERGENCY_LIGHTING", "FIRE_DETECTORS", "EXTINGUISHERS", "FIRE_SAFETY", "GUARDED_PARKING", "RESTRICTED_PUBLIC_ACCESS", "SAFE_DEPOSIT_BOX", "SMOKE_DETECTOR", "SPRINKLERS", "FITNESS_CENTER"]
+    },
+    "available": true,
+    "offers": [{
+      "id": "HM16T6QDYG",
+      "checkInDate": "2021-06-01",
+      "checkOutDate": "2021-06-02",
+      "rateCode": "RAC",
+      "rateFamilyEstimated": {
+        "code": "BAR",
+        "type": "P"
+      },
+      "commission": {
+        "percentage": "10.00"
+      },
+      "room": {
+        "type": "V1K",
+        "typeEstimated": {
+          "category": "EXECUTIVE_ROOM",
+          "beds": 1,
+          "bedType": "KING"
+        },
+        "description": {
+          "text": "FLEXIBLE RATE\nKING EXECUTIVE GUEST ROOM WITH LOUNGE ACCESS\nCOMP BFST-DRINKS-SNACKS IN LOUNGE/HIGH FLR",
+          "lang": "ZH"
+        }
+      },
+      "guests": {
+        "adults": 2
+      },
+      "price": {
+        "currency": "CNY",
+        "base": "624.00",
+        "total": "727.58",
+        "taxes": [{
+          "code": "TOTAL_TAX",
+          "amount": "0.00",
+          "currency": "CNY",
+          "included": true
+        }, {
+          "code": "SURCHARGE",
+          "amount": "103.58",
+          "currency": "CNY",
+          "included": true
+        }],
+        "variations": {
+          "average": {
+            "base": "624.00"
+          },
+          "changes": [{
+            "startDate": "2021-06-01",
+            "endDate": "2021-06-02",
+            "base": "624.00"
+          }]
+        }
+      },
+      "policies": {
+        "paymentType": "guarantee",
+        "cancellation": {
+          "deadline": "2021-05-30T23:59:00+08:00"
+        }
+      }
+    }, {
+      "id": "QR4QIBJLG0",
+      "checkInDate": "2021-06-01",
+      "checkOutDate": "2021-06-02",
+      "rateCode": "RAC",
+      "rateFamilyEstimated": {
+        "code": "BAR",
+        "type": "P"
+      },
+      "commission": {
+        "percentage": "10.00"
+      },
+      "room": {
+        "type": "V2T",
+        "typeEstimated": {
+          "category": "EXECUTIVE_ROOM",
+          "beds": 2,
+          "bedType": "TWIN"
+        },
+        "description": {
+          "text": "FLEXIBLE RATE\nTWIN EXECUTIVE GUEST ROOM WITH LOUNGE ACCESS\nCOMP BFST-DRINKS-SNACKS IN LOUNGE/HIGH FLR",
+          "lang": "ZH"
+        }
+      },
+      "guests": {
+        "adults": 2
+      },
+      "price": {
+        "currency": "CNY",
+        "base": "624.00",
+        "total": "727.58",
+        "taxes": [{
+          "code": "TOTAL_TAX",
+          "amount": "0.00",
+          "currency": "CNY",
+          "included": true
+        }, {
+          "code": "SURCHARGE",
+          "amount": "103.58",
+          "currency": "CNY",
+          "included": true
+        }],
+        "variations": {
+          "average": {
+            "base": "624.00"
+          },
+          "changes": [{
+            "startDate": "2021-06-01",
+            "endDate": "2021-06-02",
+            "base": "624.00"
+          }]
+        }
+      },
+      "policies": {
+        "paymentType": "guarantee",
+        "cancellation": {
+          "deadline": "2021-05-30T23:59:00+08:00"
+        }
+      }
+    }, {
+      "id": "RSM2OCEG6W",
+      "checkInDate": "2021-06-01",
+      "checkOutDate": "2021-06-02",
+      "rateCode": "RAC",
+      "rateFamilyEstimated": {
+        "code": "BAR",
+        "type": "P"
+      },
+      "commission": {
+        "percentage": "10.00"
+      },
+      "room": {
+        "type": "U1K",
+        "typeEstimated": {
+          "category": "DELUXE_ROOM",
+          "beds": 1,
+          "bedType": "KING"
+        },
+        "description": {
+          "text": "FLEXIBLE RATE\nKING DELUXE EXECUTIVE ROOM WITH LOUNGE ACCESS\n57SQM/ BFST-DRINKS-SNACKS/HIGH FLR/ESSPRESO",
+          "lang": "ZH"
+        }
+      },
+      "guests": {
+        "adults": 2
+      },
+      "price": {
+        "currency": "CNY",
+        "base": "686.00",
+        "total": "799.88",
+        "taxes": [{
+          "code": "TOTAL_TAX",
+          "amount": "0.00",
+          "currency": "CNY",
+          "included": true
+        }, {
+          "code": "SURCHARGE",
+          "amount": "113.88",
+          "currency": "CNY",
+          "included": true
+        }],
+        "variations": {
+          "average": {
+            "base": "686.00"
+          },
+          "changes": [{
+            "startDate": "2021-06-01",
+            "endDate": "2021-06-02",
+            "base": "686.00"
+          }]
+        }
+      },
+      "policies": {
+        "paymentType": "guarantee",
+        "cancellation": {
+          "deadline": "2021-05-30T23:59:00+08:00"
+        }
+      }
+    }, {
+      "id": "1UN0B6760V",
+      "checkInDate": "2021-06-01",
+      "checkOutDate": "2021-06-02",
+      "rateCode": "RAC",
+      "rateFamilyEstimated": {
+        "code": "BAR",
+        "type": "P"
+      },
+      "commission": {
+        "percentage": "10.00"
+      },
+      "room": {
+        "type": "T1K",
+        "typeEstimated": {
+          "category": "SUITE",
+          "beds": 1,
+          "bedType": "KING"
+        },
+        "description": {
+          "text": "FLEXIBLE RATE\nKING ONE BEDROOM SUITE WITH LOUNGE ACCESS\n76 SQM/SEP LIVING RM/WIFI/ESPRESSO MACHINE",
+          "lang": "ZH"
+        }
+      },
+      "guests": {
+        "adults": 2
+      },
+      "price": {
+        "currency": "CNY",
+        "base": "863.00",
+        "total": "1006.26",
+        "taxes": [{
+          "code": "TOTAL_TAX",
+          "amount": "0.00",
+          "currency": "CNY",
+          "included": true
+        }, {
+          "code": "SURCHARGE",
+          "amount": "143.26",
+          "currency": "CNY",
+          "included": true
+        }],
+        "variations": {
+          "average": {
+            "base": "863.00"
+          },
+          "changes": [{
+            "startDate": "2021-06-01",
+            "endDate": "2021-06-02",
+            "base": "863.00"
+          }]
+        }
+      },
+      "policies": {
+        "paymentType": "guarantee",
+        "cancellation": {
+          "deadline": "2021-05-30T23:59:00+08:00"
+        }
+      }
+    }, {
+      "id": "W7U1Q61JHV",
+      "checkInDate": "2021-06-01",
+      "checkOutDate": "2021-06-02",
+      "rateCode": "RAC",
+      "commission": {
+        "percentage": "10.00"
+      },
+      "boardType": "BREAKFAST",
+      "room": {
+        "type": "V1K",
+        "typeEstimated": {
+          "category": "EXECUTIVE_ROOM",
+          "beds": 1,
+          "bedType": "KING"
+        },
+        "description": {
+          "text": "HONORS BB PREPAY\nKING EXECUTIVE GUEST ROOM WITH LOUNGE ACCESS\nCOMP BFST-DRINKS-SNACKS IN LOUNGE/HIGH FLR",
+          "lang": "ZH"
+        }
+      },
+      "guests": {
+        "adults": 2
+      },
+      "price": {
+        "currency": "CNY",
+        "base": "632.40",
+        "total": "737.38",
+        "taxes": [{
+          "code": "TOTAL_TAX",
+          "amount": "0.00",
+          "currency": "CNY",
+          "included": true
+        }, {
+          "code": "SURCHARGE",
+          "amount": "104.98",
+          "currency": "CNY",
+          "included": true
+        }],
+        "variations": {
+          "average": {
+            "base": "632.40"
+          },
+          "changes": [{
+            "startDate": "2021-06-01",
+            "endDate": "2021-06-02",
+            "base": "632.40"
+          }]
+        }
+      },
+      "policies": {
+        "paymentType": "deposit",
+        "cancellation": {
+          "deadline": "2021-05-28T23:59:00+08:00"
+        }
+      }
+    }, {
+      "id": "B11QUR348J",
+      "checkInDate": "2021-06-01",
+      "checkOutDate": "2021-06-02",
+      "rateCode": "RAC",
+      "commission": {
+        "percentage": "10.00"
+      },
+      "boardType": "BREAKFAST",
+      "room": {
+        "type": "V2T",
+        "typeEstimated": {
+          "category": "EXECUTIVE_ROOM",
+          "beds": 2,
+          "bedType": "TWIN"
+        },
+        "description": {
+          "text": "HONORS BB PREPAY\nTWIN EXECUTIVE GUEST ROOM WITH LOUNGE ACCESS\nCOMP BFST-DRINKS-SNACKS IN LOUNGE/HIGH FLR",
+          "lang": "ZH"
+        }
+      },
+      "guests": {
+        "adults": 2
+      },
+      "price": {
+        "currency": "CNY",
+        "base": "632.40",
+        "total": "737.38",
+        "taxes": [{
+          "code": "TOTAL_TAX",
+          "amount": "0.00",
+          "currency": "CNY",
+          "included": true
+        }, {
+          "code": "SURCHARGE",
+          "amount": "104.98",
+          "currency": "CNY",
+          "included": true
+        }],
+        "variations": {
+          "average": {
+            "base": "632.40"
+          },
+          "changes": [{
+            "startDate": "2021-06-01",
+            "endDate": "2021-06-02",
+            "base": "632.40"
+          }]
+        }
+      },
+      "policies": {
+        "paymentType": "deposit",
+        "cancellation": {
+          "deadline": "2021-05-28T23:59:00+08:00"
+        }
+      }
+    }, {
+      "id": "VDHL7MTCRK",
+      "checkInDate": "2021-06-01",
+      "checkOutDate": "2021-06-02",
+      "rateCode": "RAC",
+      "commission": {
+        "percentage": "10.00"
+      },
+      "boardType": "BREAKFAST",
+      "room": {
+        "type": "U1K",
+        "typeEstimated": {
+          "category": "DELUXE_ROOM",
+          "beds": 1,
+          "bedType": "KING"
+        },
+        "description": {
+          "text": "HONORS BB PREPAY\nKING DELUXE EXECUTIVE ROOM WITH LOUNGE ACCESS\n57SQM/ BFST-DRINKS-SNACKS/HIGH FLR/ESSPRESO",
+          "lang": "ZH"
+        }
+      },
+      "guests": {
+        "adults": 2
+      },
+      "price": {
+        "currency": "CNY",
+        "base": "685.10",
+        "total": "798.83",
+        "taxes": [{
+          "code": "TOTAL_TAX",
+          "amount": "0.00",
+          "currency": "CNY",
+          "included": true
+        }, {
+          "code": "SURCHARGE",
+          "amount": "113.73",
+          "currency": "CNY",
+          "included": true
+        }],
+        "variations": {
+          "average": {
+            "base": "685.10"
+          },
+          "changes": [{
+            "startDate": "2021-06-01",
+            "endDate": "2021-06-02",
+            "base": "685.10"
+          }]
+        }
+      },
+      "policies": {
+        "paymentType": "deposit",
+        "cancellation": {
+          "deadline": "2021-05-28T23:59:00+08:00"
+        }
+      }
+    }, {
+      "id": "CE69K9X4H2",
+      "checkInDate": "2021-06-01",
+      "checkOutDate": "2021-06-02",
+      "rateCode": "RAC",
+      "commission": {
+        "percentage": "10.00"
+      },
+      "boardType": "BREAKFAST",
+      "room": {
+        "type": "T1K",
+        "typeEstimated": {
+          "category": "SUITE",
+          "beds": 1,
+          "bedType": "KING"
+        },
+        "description": {
+          "text": "HONORS BB PREPAY\nKING ONE BEDROOM SUITE WITH LOUNGE ACCESS\n76 SQM/SEP LIVING RM/WIFI/ESPRESSO MACHINE",
+          "lang": "ZH"
+        }
+      },
+      "guests": {
+        "adults": 2
+      },
+      "price": {
+        "currency": "CNY",
+        "base": "835.55",
+        "total": "974.25",
+        "taxes": [{
+          "code": "TOTAL_TAX",
+          "amount": "0.00",
+          "currency": "CNY",
+          "included": true
+        }, {
+          "code": "SURCHARGE",
+          "amount": "138.70",
+          "currency": "CNY",
+          "included": true
+        }],
+        "variations": {
+          "average": {
+            "base": "835.55"
+          },
+          "changes": [{
+            "startDate": "2021-06-01",
+            "endDate": "2021-06-02",
+            "base": "835.55"
+          }]
+        }
+      },
+      "policies": {
+        "paymentType": "deposit",
+        "cancellation": {
+          "deadline": "2021-05-28T23:59:00+08:00"
+        }
+      }
+    }, {
+      "id": "SDE80UPFVO",
+      "checkInDate": "2021-06-01",
+      "checkOutDate": "2021-06-02",
+      "rateCode": "RAC",
+      "rateFamilyEstimated": {
+        "code": "PRO",
+        "type": "P"
+      },
+      "commission": {
+        "percentage": "10.00"
+      },
+      "boardType": "BREAKFAST",
+      "room": {
+        "type": "V1K",
+        "typeEstimated": {
+          "category": "EXECUTIVE_ROOM",
+          "beds": 1,
+          "bedType": "KING"
+        },
+        "description": {
+          "text": "BB PREPAY AND SAVE\nKING EXECUTIVE GUEST ROOM WITH LOUNGE ACCESS\nCOMP BFST-DRINKS-SNACKS IN LOUNGE/HIGH FLR",
+          "lang": "ZH"
+        }
+      },
+      "guests": {
+        "adults": 2
+      },
+      "price": {
+        "currency": "CNY",
+        "base": "669.60",
+        "total": "780.75",
+        "taxes": [{
+          "code": "TOTAL_TAX",
+          "amount": "0.00",
+          "currency": "CNY",
+          "included": true
+        }, {
+          "code": "SURCHARGE",
+          "amount": "111.15",
+          "currency": "CNY",
+          "included": true
+        }],
+        "variations": {
+          "average": {
+            "base": "669.60"
+          },
+          "changes": [{
+            "startDate": "2021-06-01",
+            "endDate": "2021-06-02",
+            "base": "669.60"
+          }]
+        }
+      },
+      "policies": {
+        "paymentType": "deposit",
+        "cancellation": {
+          "deadline": "2021-05-28T23:59:00+08:00"
+        }
+      }
+    }, {
+      "id": "2MO6KKX0FA",
+      "checkInDate": "2021-06-01",
+      "checkOutDate": "2021-06-02",
+      "rateCode": "RAC",
+      "rateFamilyEstimated": {
+        "code": "PRO",
+        "type": "P"
+      },
+      "commission": {
+        "percentage": "10.00"
+      },
+      "boardType": "BREAKFAST",
+      "room": {
+        "type": "V2T",
+        "typeEstimated": {
+          "category": "EXECUTIVE_ROOM",
+          "beds": 2,
+          "bedType": "TWIN"
+        },
+        "description": {
+          "text": "BB PREPAY AND SAVE\nTWIN EXECUTIVE GUEST ROOM WITH LOUNGE ACCESS\nCOMP BFST-DRINKS-SNACKS IN LOUNGE/HIGH FLR",
+          "lang": "ZH"
+        }
+      },
+      "guests": {
+        "adults": 2
+      },
+      "price": {
+        "currency": "CNY",
+        "base": "669.60",
+        "total": "780.75",
+        "taxes": [{
+          "code": "TOTAL_TAX",
+          "amount": "0.00",
+          "currency": "CNY",
+          "included": true
+        }, {
+          "code": "SURCHARGE",
+          "amount": "111.15",
+          "currency": "CNY",
+          "included": true
+        }],
+        "variations": {
+          "average": {
+            "base": "669.60"
+          },
+          "changes": [{
+            "startDate": "2021-06-01",
+            "endDate": "2021-06-02",
+            "base": "669.60"
+          }]
+        }
+      },
+      "policies": {
+        "paymentType": "deposit",
+        "cancellation": {
+          "deadline": "2021-05-28T23:59:00+08:00"
+        }
+      }
+    }, {
+      "id": "Z6LD0BZG6U",
+      "checkInDate": "2021-06-01",
+      "checkOutDate": "2021-06-02",
+      "rateCode": "RAC",
+      "rateFamilyEstimated": {
+        "code": "PRO",
+        "type": "P"
+      },
+      "commission": {
+        "percentage": "10.00"
+      },
+      "boardType": "BREAKFAST",
+      "room": {
+        "type": "U1K",
+        "typeEstimated": {
+          "category": "DELUXE_ROOM",
+          "beds": 1,
+          "bedType": "KING"
+        },
+        "description": {
+          "text": "BB PREPAY AND SAVE\nKING DELUXE EXECUTIVE ROOM WITH LOUNGE ACCESS\n57SQM/ BFST-DRINKS-SNACKS/HIGH FLR/ESSPRESO",
+          "lang": "ZH"
+        }
+      },
+      "guests": {
+        "adults": 2
+      },
+      "price": {
+        "currency": "CNY",
+        "base": "725.40",
+        "total": "845.82",
+        "taxes": [{
+          "code": "TOTAL_TAX",
+          "amount": "0.00",
+          "currency": "CNY",
+          "included": true
+        }, {
+          "code": "SURCHARGE",
+          "amount": "120.42",
+          "currency": "CNY",
+          "included": true
+        }],
+        "variations": {
+          "average": {
+            "base": "725.40"
+          },
+          "changes": [{
+            "startDate": "2021-06-01",
+            "endDate": "2021-06-02",
+            "base": "725.40"
+          }]
+        }
+      },
+      "policies": {
+        "paymentType": "deposit",
+        "cancellation": {
+          "deadline": "2021-05-28T23:59:00+08:00"
+        }
+      }
+    }, {
+      "id": "W5WAETFMWV",
+      "checkInDate": "2021-06-01",
+      "checkOutDate": "2021-06-02",
+      "rateCode": "RAC",
+      "rateFamilyEstimated": {
+        "code": "PRO",
+        "type": "P"
+      },
+      "commission": {
+        "percentage": "10.00"
+      },
+      "boardType": "BREAKFAST",
+      "room": {
+        "type": "T1K",
+        "typeEstimated": {
+          "category": "SUITE",
+          "beds": 1,
+          "bedType": "KING"
+        },
+        "description": {
+          "text": "BB PREPAY AND SAVE\nKING ONE BEDROOM SUITE WITH LOUNGE ACCESS\n76 SQM/SEP LIVING RM/WIFI/ESPRESSO MACHINE",
+          "lang": "ZH"
+        }
+      },
+      "guests": {
+        "adults": 2
+      },
+      "price": {
+        "currency": "CNY",
+        "base": "884.70",
+        "total": "1031.56",
+        "taxes": [{
+          "code": "TOTAL_TAX",
+          "amount": "0.00",
+          "currency": "CNY",
+          "included": true
+        }, {
+          "code": "SURCHARGE",
+          "amount": "146.86",
+          "currency": "CNY",
+          "included": true
+        }],
+        "variations": {
+          "average": {
+            "base": "884.70"
+          },
+          "changes": [{
+            "startDate": "2021-06-01",
+            "endDate": "2021-06-02",
+            "base": "884.70"
+          }]
+        }
+      },
+      "policies": {
+        "paymentType": "deposit",
+        "cancellation": {
+          "deadline": "2021-05-28T23:59:00+08:00"
+        }
+      }
+    }, {
+      "id": "BSZBPS7HTN",
+      "checkInDate": "2021-06-01",
+      "checkOutDate": "2021-06-02",
+      "rateCode": "RAC",
+      "commission": {
+        "percentage": "10.00"
+      },
+      "room": {
+        "type": "V1K",
+        "typeEstimated": {
+          "category": "FAMILY_ROOM",
+          "beds": 1,
+          "bedType": "KING"
+        },
+        "description": {
+          "text": "GCM FAMILY ROOM ONLY\nKING EXECUTIVE GUEST ROOM WITH LOUNGE ACCESS\nCOMP BFST-DRINKS-SNACKS IN LOUNGE/HIGH FLR",
+          "lang": "ZH"
+        }
+      },
+      "guests": {
+        "adults": 2
+      },
+      "price": {
+        "currency": "CNY",
+        "base": "674.00",
+        "total": "785.88",
+        "taxes": [{
+          "code": "TOTAL_TAX",
+          "amount": "0.00",
+          "currency": "CNY",
+          "included": true
+        }, {
+          "code": "SURCHARGE",
+          "amount": "111.88",
+          "currency": "CNY",
+          "included": true
+        }],
+        "variations": {
+          "average": {
+            "base": "674.00"
+          },
+          "changes": [{
+            "startDate": "2021-06-01",
+            "endDate": "2021-06-02",
+            "base": "674.00"
+          }]
+        }
+      },
+      "policies": {
+        "paymentType": "guarantee",
+        "cancellation": {
+          "deadline": "2021-05-30T23:59:00+08:00"
+        }
+      }
+    }, {
+      "id": "ZO70EDTF6U",
+      "checkInDate": "2021-06-01",
+      "checkOutDate": "2021-06-02",
+      "rateCode": "RAC",
+      "commission": {
+        "percentage": "10.00"
+      },
+      "room": {
+        "type": "V2T",
+        "typeEstimated": {
+          "category": "FAMILY_ROOM",
+          "beds": 2,
+          "bedType": "TWIN"
+        },
+        "description": {
+          "text": "GCM FAMILY ROOM ONLY\nTWIN EXECUTIVE GUEST ROOM WITH LOUNGE ACCESS\nCOMP BFST-DRINKS-SNACKS IN LOUNGE/HIGH FLR",
+          "lang": "ZH"
+        }
+      },
+      "guests": {
+        "adults": 2
+      },
+      "price": {
+        "currency": "CNY",
+        "base": "674.00",
+        "total": "785.88",
+        "taxes": [{
+          "code": "TOTAL_TAX",
+          "amount": "0.00",
+          "currency": "CNY",
+          "included": true
+        }, {
+          "code": "SURCHARGE",
+          "amount": "111.88",
+          "currency": "CNY",
+          "included": true
+        }],
+        "variations": {
+          "average": {
+            "base": "674.00"
+          },
+          "changes": [{
+            "startDate": "2021-06-01",
+            "endDate": "2021-06-02",
+            "base": "674.00"
+          }]
+        }
+      },
+      "policies": {
+        "paymentType": "guarantee",
+        "cancellation": {
+          "deadline": "2021-05-30T23:59:00+08:00"
+        }
+      }
+    }, {
+      "id": "0N3UZOAS5G",
+      "checkInDate": "2021-06-01",
+      "checkOutDate": "2021-06-02",
+      "rateCode": "RAC",
+      "commission": {
+        "percentage": "10.00"
+      },
+      "room": {
+        "type": "U1K",
+        "typeEstimated": {
+          "category": "FAMILY_ROOM",
+          "beds": 1,
+          "bedType": "KING"
+        },
+        "description": {
+          "text": "GCM FAMILY ROOM ONLY\nKING DELUXE EXECUTIVE ROOM WITH LOUNGE ACCESS\n57SQM/ BFST-DRINKS-SNACKS/HIGH FLR/ESSPRESO",
+          "lang": "ZH"
+        }
+      },
+      "guests": {
+        "adults": 2
+      },
+      "price": {
+        "currency": "CNY",
+        "base": "736.00",
+        "total": "858.18",
+        "taxes": [{
+          "code": "TOTAL_TAX",
+          "amount": "0.00",
+          "currency": "CNY",
+          "included": true
+        }, {
+          "code": "SURCHARGE",
+          "amount": "122.18",
+          "currency": "CNY",
+          "included": true
+        }],
+        "variations": {
+          "average": {
+            "base": "736.00"
+          },
+          "changes": [{
+            "startDate": "2021-06-01",
+            "endDate": "2021-06-02",
+            "base": "736.00"
+          }]
+        }
+      },
+      "policies": {
+        "paymentType": "guarantee",
+        "cancellation": {
+          "deadline": "2021-05-30T23:59:00+08:00"
+        }
+      }
+    }, {
+      "id": "M8FHP3AAQB",
+      "checkInDate": "2021-06-01",
+      "checkOutDate": "2021-06-02",
+      "rateCode": "RAC",
+      "commission": {
+        "percentage": "10.00"
+      },
+      "room": {
+        "type": "T1K",
+        "typeEstimated": {
+          "category": "FAMILY_ROOM",
+          "beds": 1,
+          "bedType": "KING"
+        },
+        "description": {
+          "text": "GCM FAMILY ROOM ONLY\nKING ONE BEDROOM SUITE WITH LOUNGE ACCESS\n76 SQM/SEP LIVING RM/WIFI/ESPRESSO MACHINE",
+          "lang": "ZH"
+        }
+      },
+      "guests": {
+        "adults": 2
+      },
+      "price": {
+        "currency": "CNY",
+        "base": "913.00",
+        "total": "1064.56",
+        "taxes": [{
+          "code": "TOTAL_TAX",
+          "amount": "0.00",
+          "currency": "CNY",
+          "included": true
+        }, {
+          "code": "SURCHARGE",
+          "amount": "151.56",
+          "currency": "CNY",
+          "included": true
+        }],
+        "variations": {
+          "average": {
+            "base": "913.00"
+          },
+          "changes": [{
+            "startDate": "2021-06-01",
+            "endDate": "2021-06-02",
+            "base": "913.00"
+          }]
+        }
+      },
+      "policies": {
+        "paymentType": "guarantee",
+        "cancellation": {
+          "deadline": "2021-05-30T23:59:00+08:00"
+        }
+      }
+    }, {
+      "id": "SU5H8DVW21",
+      "checkInDate": "2021-06-01",
+      "checkOutDate": "2021-06-02",
+      "rateCode": "RAC",
+      "commission": {
+        "percentage": "10.00"
+      },
+      "boardType": "BREAKFAST",
+      "room": {
+        "type": "V1K",
+        "typeEstimated": {
+          "category": "FAMILY_ROOM",
+          "beds": 1,
+          "bedType": "KING"
+        },
+        "description": {
+          "text": "GCM FAMILY BED AND BREAKFAST\nKING EXECUTIVE GUEST ROOM WITH LOUNGE ACCESS\nCOMP BFST-DRINKS-SNACKS IN LOUNGE/HIGH FLR",
+          "lang": "ZH"
+        }
+      },
+      "guests": {
+        "adults": 2
+      },
+      "price": {
+        "currency": "CNY",
+        "base": "794.00",
+        "total": "925.80",
+        "taxes": [{
+          "code": "TOTAL_TAX",
+          "amount": "0.00",
+          "currency": "CNY",
+          "included": true
+        }, {
+          "code": "SURCHARGE",
+          "amount": "131.80",
+          "currency": "CNY",
+          "included": true
+        }],
+        "variations": {
+          "average": {
+            "base": "794.00"
+          },
+          "changes": [{
+            "startDate": "2021-06-01",
+            "endDate": "2021-06-02",
+            "base": "794.00"
+          }]
+        }
+      },
+      "policies": {
+        "paymentType": "guarantee",
+        "cancellation": {
+          "deadline": "2021-05-30T23:59:00+08:00"
+        }
+      }
+    }, {
+      "id": "G02AQYO81W",
+      "checkInDate": "2021-06-01",
+      "checkOutDate": "2021-06-02",
+      "rateCode": "RAC",
+      "commission": {
+        "percentage": "10.00"
+      },
+      "boardType": "BREAKFAST",
+      "room": {
+        "type": "V2T",
+        "typeEstimated": {
+          "category": "FAMILY_ROOM",
+          "beds": 2,
+          "bedType": "TWIN"
+        },
+        "description": {
+          "text": "GCM FAMILY BED AND BREAKFAST\nTWIN EXECUTIVE GUEST ROOM WITH LOUNGE ACCESS\nCOMP BFST-DRINKS-SNACKS IN LOUNGE/HIGH FLR",
+          "lang": "ZH"
+        }
+      },
+      "guests": {
+        "adults": 2
+      },
+      "price": {
+        "currency": "CNY",
+        "base": "794.00",
+        "total": "925.80",
+        "taxes": [{
+          "code": "TOTAL_TAX",
+          "amount": "0.00",
+          "currency": "CNY",
+          "included": true
+        }, {
+          "code": "SURCHARGE",
+          "amount": "131.80",
+          "currency": "CNY",
+          "included": true
+        }],
+        "variations": {
+          "average": {
+            "base": "794.00"
+          },
+          "changes": [{
+            "startDate": "2021-06-01",
+            "endDate": "2021-06-02",
+            "base": "794.00"
+          }]
+        }
+      },
+      "policies": {
+        "paymentType": "guarantee",
+        "cancellation": {
+          "deadline": "2021-05-30T23:59:00+08:00"
+        }
+      }
+    }, {
+      "id": "LRYORPC1R2",
+      "checkInDate": "2021-06-01",
+      "checkOutDate": "2021-06-02",
+      "rateCode": "RAC",
+      "commission": {
+        "percentage": "10.00"
+      },
+      "boardType": "BREAKFAST",
+      "room": {
+        "type": "U1K",
+        "typeEstimated": {
+          "category": "FAMILY_ROOM",
+          "beds": 1,
+          "bedType": "KING"
+        },
+        "description": {
+          "text": "GCM FAMILY BED AND BREAKFAST\nKING DELUXE EXECUTIVE ROOM WITH LOUNGE ACCESS\n57SQM/ BFST-DRINKS-SNACKS/HIGH FLR/ESSPRESO",
+          "lang": "ZH"
+        }
+      },
+      "guests": {
+        "adults": 2
+      },
+      "price": {
+        "currency": "CNY",
+        "base": "856.00",
+        "total": "998.10",
+        "taxes": [{
+          "code": "TOTAL_TAX",
+          "amount": "0.00",
+          "currency": "CNY",
+          "included": true
+        }, {
+          "code": "SURCHARGE",
+          "amount": "142.10",
+          "currency": "CNY",
+          "included": true
+        }],
+        "variations": {
+          "average": {
+            "base": "856.00"
+          },
+          "changes": [{
+            "startDate": "2021-06-01",
+            "endDate": "2021-06-02",
+            "base": "856.00"
+          }]
+        }
+      },
+      "policies": {
+        "paymentType": "guarantee",
+        "cancellation": {
+          "deadline": "2021-05-30T23:59:00+08:00"
+        }
+      }
+    }, {
+      "id": "I4EFFJA19V",
+      "checkInDate": "2021-06-01",
+      "checkOutDate": "2021-06-02",
+      "rateCode": "RAC",
+      "commission": {
+        "percentage": "10.00"
+      },
+      "boardType": "BREAKFAST",
+      "room": {
+        "type": "T1K",
+        "typeEstimated": {
+          "category": "FAMILY_ROOM",
+          "beds": 1,
+          "bedType": "KING"
+        },
+        "description": {
+          "text": "GCM FAMILY BED AND BREAKFAST\nKING ONE BEDROOM SUITE WITH LOUNGE ACCESS\n76 SQM/SEP LIVING RM/WIFI/ESPRESSO MACHINE",
+          "lang": "ZH"
+        }
+      },
+      "guests": {
+        "adults": 2
+      },
+      "price": {
+        "currency": "CNY",
+        "base": "1033.00",
+        "total": "1204.48",
+        "taxes": [{
+          "code": "TOTAL_TAX",
+          "amount": "0.00",
+          "currency": "CNY",
+          "included": true
+        }, {
+          "code": "SURCHARGE",
+          "amount": "171.48",
+          "currency": "CNY",
+          "included": true
+        }],
+        "variations": {
+          "average": {
+            "base": "1033.00"
+          },
+          "changes": [{
+            "startDate": "2021-06-01",
+            "endDate": "2021-06-02",
+            "base": "1033.00"
+          }]
+        }
+      },
+      "policies": {
+        "paymentType": "guarantee",
+        "cancellation": {
+          "deadline": "2021-05-30T23:59:00+08:00"
+        }
+      }
+    }, {
+      "id": "71A9D393B5",
+      "checkInDate": "2021-06-01",
+      "checkOutDate": "2021-06-02",
+      "rateCode": "RAC",
+      "commission": {
+        "percentage": "10.00"
+      },
+      "room": {
+        "type": "V1K",
+        "typeEstimated": {
+          "category": "EXECUTIVE_ROOM",
+          "beds": 1,
+          "bedType": "KING"
+        },
+        "description": {
+          "text": "2X POINTS\nKING EXECUTIVE GUEST ROOM WITH LOUNGE ACCESS\nCOMP BFST-DRINKS-SNACKS IN LOUNGE/HIGH FLR",
+          "lang": "ZH"
+        }
+      },
+      "guests": {
+        "adults": 2
+      },
+      "price": {
+        "currency": "CNY",
+        "base": "642.72",
+        "total": "749.41",
+        "taxes": [{
+          "code": "TOTAL_TAX",
+          "amount": "0.00",
+          "currency": "CNY",
+          "included": true
+        }, {
+          "code": "SURCHARGE",
+          "amount": "106.69",
+          "currency": "CNY",
+          "included": true
+        }],
+        "variations": {
+          "average": {
+            "base": "642.72"
+          },
+          "changes": [{
+            "startDate": "2021-06-01",
+            "endDate": "2021-06-02",
+            "base": "642.72"
+          }]
+        }
+      },
+      "policies": {
+        "paymentType": "guarantee",
+        "cancellation": {
+          "deadline": "2021-05-30T23:59:00+08:00"
+        }
+      }
+    }, {
+      "id": "X7GY6TAQUH",
+      "checkInDate": "2021-06-01",
+      "checkOutDate": "2021-06-02",
+      "rateCode": "RAC",
+      "commission": {
+        "percentage": "10.00"
+      },
+      "room": {
+        "type": "V2T",
+        "typeEstimated": {
+          "category": "EXECUTIVE_ROOM",
+          "beds": 2,
+          "bedType": "TWIN"
+        },
+        "description": {
+          "text": "2X POINTS\nTWIN EXECUTIVE GUEST ROOM WITH LOUNGE ACCESS\nCOMP BFST-DRINKS-SNACKS IN LOUNGE/HIGH FLR",
+          "lang": "ZH"
+        }
+      },
+      "guests": {
+        "adults": 2
+      },
+      "price": {
+        "currency": "CNY",
+        "base": "642.72",
+        "total": "749.41",
+        "taxes": [{
+          "code": "TOTAL_TAX",
+          "amount": "0.00",
+          "currency": "CNY",
+          "included": true
+        }, {
+          "code": "SURCHARGE",
+          "amount": "106.69",
+          "currency": "CNY",
+          "included": true
+        }],
+        "variations": {
+          "average": {
+            "base": "642.72"
+          },
+          "changes": [{
+            "startDate": "2021-06-01",
+            "endDate": "2021-06-02",
+            "base": "642.72"
+          }]
+        }
+      },
+      "policies": {
+        "paymentType": "guarantee",
+        "cancellation": {
+          "deadline": "2021-05-30T23:59:00+08:00"
+        }
+      }
+    }, {
+      "id": "V3PB4W1X62",
+      "checkInDate": "2021-06-01",
+      "checkOutDate": "2021-06-02",
+      "rateCode": "RAC",
+      "commission": {
+        "percentage": "10.00"
+      },
+      "room": {
+        "type": "U1K",
+        "typeEstimated": {
+          "category": "DELUXE_ROOM",
+          "beds": 1,
+          "bedType": "KING"
+        },
+        "description": {
+          "text": "2X POINTS\nKING DELUXE EXECUTIVE ROOM WITH LOUNGE ACCESS\n57SQM/ BFST-DRINKS-SNACKS/HIGH FLR/ESSPRESO",
+          "lang": "ZH"
+        }
+      },
+      "guests": {
+        "adults": 2
+      },
+      "price": {
+        "currency": "CNY",
+        "base": "706.58",
+        "total": "823.87",
+        "taxes": [{
+          "code": "TOTAL_TAX",
+          "amount": "0.00",
+          "currency": "CNY",
+          "included": true
+        }, {
+          "code": "SURCHARGE",
+          "amount": "117.29",
+          "currency": "CNY",
+          "included": true
+        }],
+        "variations": {
+          "average": {
+            "base": "706.58"
+          },
+          "changes": [{
+            "startDate": "2021-06-01",
+            "endDate": "2021-06-02",
+            "base": "706.58"
+          }]
+        }
+      },
+      "policies": {
+        "paymentType": "guarantee",
+        "cancellation": {
+          "deadline": "2021-05-30T23:59:00+08:00"
+        }
+      }
+    }, {
+      "id": "P07MFL7MGX",
+      "checkInDate": "2021-06-01",
+      "checkOutDate": "2021-06-02",
+      "rateCode": "RAC",
+      "commission": {
+        "percentage": "10.00"
+      },
+      "room": {
+        "type": "T1K",
+        "typeEstimated": {
+          "category": "SUITE",
+          "beds": 1,
+          "bedType": "KING"
+        },
+        "description": {
+          "text": "2X POINTS\nKING ONE BEDROOM SUITE WITH LOUNGE ACCESS\n76 SQM/SEP LIVING RM/WIFI/ESPRESSO MACHINE",
+          "lang": "ZH"
+        }
+      },
+      "guests": {
+        "adults": 2
+      },
+      "price": {
+        "currency": "CNY",
+        "base": "888.89",
+        "total": "1036.45",
+        "taxes": [{
+          "code": "TOTAL_TAX",
+          "amount": "0.00",
+          "currency": "CNY",
+          "included": true
+        }, {
+          "code": "SURCHARGE",
+          "amount": "147.56",
+          "currency": "CNY",
+          "included": true
+        }],
+        "variations": {
+          "average": {
+            "base": "888.89"
+          },
+          "changes": [{
+            "startDate": "2021-06-01",
+            "endDate": "2021-06-02",
+            "base": "888.89"
+          }]
+        }
+      },
+      "policies": {
+        "paymentType": "guarantee",
+        "cancellation": {
+          "deadline": "2021-05-30T23:59:00+08:00"
+        }
+      }
+    }, {
+      "id": "GEYEEYQ1FQ",
+      "checkInDate": "2021-06-01",
+      "checkOutDate": "2021-06-02",
+      "rateCode": "RAC",
+      "commission": {
+        "percentage": "10.00"
+      },
+      "boardType": "BREAKFAST",
+      "room": {
+        "type": "V1K",
+        "typeEstimated": {
+          "category": "EXECUTIVE_ROOM",
+          "beds": 1,
+          "bedType": "KING"
+        },
+        "description": {
+          "text": "BED AND BREAKFAST\nKING EXECUTIVE GUEST ROOM WITH LOUNGE ACCESS\nCOMP BFST-DRINKS-SNACKS IN LOUNGE/HIGH FLR",
+          "lang": "ZH"
+        }
+      },
+      "guests": {
+        "adults": 2
+      },
+      "price": {
+        "currency": "CNY",
+        "base": "744.00",
+        "total": "867.50",
+        "taxes": [{
+          "code": "TOTAL_TAX",
+          "amount": "0.00",
+          "currency": "CNY",
+          "included": true
+        }, {
+          "code": "SURCHARGE",
+          "amount": "123.50",
+          "currency": "CNY",
+          "included": true
+        }],
+        "variations": {
+          "average": {
+            "base": "744.00"
+          },
+          "changes": [{
+            "startDate": "2021-06-01",
+            "endDate": "2021-06-02",
+            "base": "744.00"
+          }]
+        }
+      },
+      "policies": {
+        "paymentType": "guarantee",
+        "cancellation": {
+          "deadline": "2021-05-30T23:59:00+08:00"
+        }
+      }
+    }, {
+      "id": "XCXYZH003R",
+      "checkInDate": "2021-06-01",
+      "checkOutDate": "2021-06-02",
+      "rateCode": "RAC",
+      "commission": {
+        "percentage": "10.00"
+      },
+      "boardType": "BREAKFAST",
+      "room": {
+        "type": "V2T",
+        "typeEstimated": {
+          "category": "EXECUTIVE_ROOM",
+          "beds": 2,
+          "bedType": "TWIN"
+        },
+        "description": {
+          "text": "BED AND BREAKFAST\nTWIN EXECUTIVE GUEST ROOM WITH LOUNGE ACCESS\nCOMP BFST-DRINKS-SNACKS IN LOUNGE/HIGH FLR",
+          "lang": "ZH"
+        }
+      },
+      "guests": {
+        "adults": 2
+      },
+      "price": {
+        "currency": "CNY",
+        "base": "744.00",
+        "total": "867.50",
+        "taxes": [{
+          "code": "TOTAL_TAX",
+          "amount": "0.00",
+          "currency": "CNY",
+          "included": true
+        }, {
+          "code": "SURCHARGE",
+          "amount": "123.50",
+          "currency": "CNY",
+          "included": true
+        }],
+        "variations": {
+          "average": {
+            "base": "744.00"
+          },
+          "changes": [{
+            "startDate": "2021-06-01",
+            "endDate": "2021-06-02",
+            "base": "744.00"
+          }]
+        }
+      },
+      "policies": {
+        "paymentType": "guarantee",
+        "cancellation": {
+          "deadline": "2021-05-30T23:59:00+08:00"
+        }
+      }
+    }, {
+      "id": "6AIAWEIUKK",
+      "checkInDate": "2021-06-01",
+      "checkOutDate": "2021-06-02",
+      "rateCode": "RAC",
+      "commission": {
+        "percentage": "10.00"
+      },
+      "boardType": "BREAKFAST",
+      "room": {
+        "type": "U1K",
+        "typeEstimated": {
+          "category": "DELUXE_ROOM",
+          "beds": 1,
+          "bedType": "KING"
+        },
+        "description": {
+          "text": "BED AND BREAKFAST\nKING DELUXE EXECUTIVE ROOM WITH LOUNGE ACCESS\n57SQM/ BFST-DRINKS-SNACKS/HIGH FLR/ESSPRESO",
+          "lang": "ZH"
+        }
+      },
+      "guests": {
+        "adults": 2
+      },
+      "price": {
+        "currency": "CNY",
+        "base": "806.00",
+        "total": "939.80",
+        "taxes": [{
+          "code": "TOTAL_TAX",
+          "amount": "0.00",
+          "currency": "CNY",
+          "included": true
+        }, {
+          "code": "SURCHARGE",
+          "amount": "133.80",
+          "currency": "CNY",
+          "included": true
+        }],
+        "variations": {
+          "average": {
+            "base": "806.00"
+          },
+          "changes": [{
+            "startDate": "2021-06-01",
+            "endDate": "2021-06-02",
+            "base": "806.00"
+          }]
+        }
+      },
+      "policies": {
+        "paymentType": "guarantee",
+        "cancellation": {
+          "deadline": "2021-05-30T23:59:00+08:00"
+        }
+      }
+    }, {
+      "id": "9STN27HO2E",
+      "checkInDate": "2021-06-01",
+      "checkOutDate": "2021-06-02",
+      "rateCode": "RAC",
+      "commission": {
+        "percentage": "10.00"
+      },
+      "boardType": "BREAKFAST",
+      "room": {
+        "type": "T1K",
+        "typeEstimated": {
+          "category": "SUITE",
+          "beds": 1,
+          "bedType": "KING"
+        },
+        "description": {
+          "text": "BED AND BREAKFAST\nKING ONE BEDROOM SUITE WITH LOUNGE ACCESS\n76 SQM/SEP LIVING RM/WIFI/ESPRESSO MACHINE",
+          "lang": "ZH"
+        }
+      },
+      "guests": {
+        "adults": 2
+      },
+      "price": {
+        "currency": "CNY",
+        "base": "983.00",
+        "total": "1146.18",
+        "taxes": [{
+          "code": "TOTAL_TAX",
+          "amount": "0.00",
+          "currency": "CNY",
+          "included": true
+        }, {
+          "code": "SURCHARGE",
+          "amount": "163.18",
+          "currency": "CNY",
+          "included": true
+        }],
+        "variations": {
+          "average": {
+            "base": "983.00"
+          },
+          "changes": [{
+            "startDate": "2021-06-01",
+            "endDate": "2021-06-02",
+            "base": "983.00"
+          }]
+        }
+      },
+      "policies": {
+        "paymentType": "guarantee",
+        "cancellation": {
+          "deadline": "2021-05-30T23:59:00+08:00"
+        }
+      }
+    }],
+    "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/by-hotel?hotelId=HLSZV429&adults=2&checkInDate=2021-06-01&paymentPolicy=NONE&roomQuantity=1&view=FULL"
+  }, {
+    "type": "hotel-offers",
+    "hotel": {
+      "type": "hotel",
+      "hotelId": "ONSZVLAK",
+      "chainCode": "ON",
+      "name": "LAKESIDE HOTEL",
+      "rating": "5",
+      "cityCode": "SZV",
+      "latitude": 33.62903,
+      "longitude": 117.00192,
+      "hotelDistance": {
+        "distance": 2.4,
+        "distanceUnit": "KM"
+      },
+      "address": {
+        "lines": ["YANGCHENG LAKE EAST ROAD", "XIANGCHENG DISTRICT"],
+        "postalCode": "215131",
+        "cityName": "SUZHOU",
+        "countryCode": "CN"
+      },
+      "contact": {
+        "phone": "86 512 66183888",
+        "fax": "86 512 66183668"
+      },
+      "description": {
+        "lang": "en",
+        "text": "Lakeside Hotel is a 5 star business hotel which is located in Xiangcheng district, Suzhou, and it is called ¡®paradise on earth¡¯ and ¡®orient Venice¡¯. Yangcheng Lake is nearby here. It has the Chinese tradition and modern scenery. All rooms are comfortable decorated in Chinese traditional and modern classic, including standard rooms, standard suites, etc. Guests can enjoy free wifi in public area All rooms equip high speed internet access for free, TV with international channels, IDD, etc. The international meeting center is fine decorated with 10 different standards meeting halls and 2 multifunctional halls to fit different kinds of finance activities. There are Chinese restaurant and lobby bar, where you can get delicious food and fragrant beverage in a relaxing environment. The recreation center includes hair gym and in-door swimming pool on for, hair salon, tennis court, KTV, etc."
+      },
+      "amenities": ["BUSINESS_CENTER", "MEETING_ROOMS", "RESTAURANT", "BEAUTY_PARLOUR", "DISCO", "ELEVATOR", "EXCHANGE_FACILITIES", "GIFT_SHOP", "FREE_INTERNET", "PARKING", "TENNIS", "LOUNGE", "SWIMMING_POOL", "AIR_CONDITIONING", "ROOM_SERVICE", "SAFE_DEPOSIT_BOX"],
+      "media": [{
+        "uri": "http://uat.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/8A2432EF78BD41C7B57D3ECD224447C0",
+        "category": "EXTERIOR"
+      }]
+    },
+    "available": false,
+    "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/by-hotel?hotelId=ONSZVLAK&adults=2&checkInDate=2021-06-01&paymentPolicy=NONE&roomQuantity=1&view=FULL"
+  }, {
+    "type": "hotel-offers",
+    "hotel": {
+      "type": "hotel",
+      "hotelId": "ONSZVDON",
+      "chainCode": "ON",
+      "name": "DONGSHAN BUSINESS HOTEL",
+      "rating": "5",
+      "cityCode": "SZV",
+      "latitude": 33.62903,
+      "longitude": 117.00192,
+      "hotelDistance": {
+        "distance": 2.4,
+        "distanceUnit": "KM"
+      },
+      "address": {
+        "lines": ["QI YUAN ROAD", "DONGSHAN ZHEN WUZHONG DISTRICT"],
+        "postalCode": "215107",
+        "cityName": "SUZHOU",
+        "countryCode": "CN"
+      },
+      "contact": {
+        "phone": "86 512 66281888",
+        "fax": "86 512 66281229"
+      },
+      "description": {
+        "lang": "en",
+        "text": "Dongshan Business Hotel is a 5 star resort hotel located Taihu Lake shore and embraced by hills, in Wuzhong district, Suzhou. It is near Luxiang village, the carved mansion, Zijin temple, Sanshan island, golf club, etc. There are 400 rooms such as mountain view and mountain view suites, all designed and decorated in a unique, ingenious style. Free WIFI In Public Area and All Rooms. Guest also can enjoy the shuttle service and non smoking rooms. Each guest room equips the most modern facilities to make your travel be more convenient, including mineral water for free, IDD, DDD, etc. 10 conference or meeting rooms, equipping with advanced facilities, can meet all kinds of requirements for various meetings. The body building and entertainment center is composed of diverse recreation places such as sauna, massage, feet bathing, tennis ball, KTV, waiting to refresh your exhausted body."
+      },
+      "amenities": ["BUSINESS_CENTER", "MEETING_ROOMS", "ICE_MACHINES", "RESTAURANT", "BEAUTY_PARLOUR", "CAR_RENTAL", "DISCO", "ELEVATOR", "EXCHANGE_FACILITIES", "EXECUTIVE_FLOOR", "GIFT_SHOP", "FREE_INTERNET", "MASSAGE", "PARKING", "PHARMACY", "SAUNA", "SOLARIUM", "TENNIS", "VALET_PARKING", "LOUNGE", "SWIMMING_POOL", "AIR_CONDITIONING", "ROOM_SERVICE", "WI-FI_IN_ROOM", "SAFE_DEPOSIT_BOX"],
+      "media": [{
+        "uri": "http://uat.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/65AC4AFB60E44E84914B3B72265CD68C",
+        "category": "EXTERIOR"
+      }]
+    },
+    "available": false,
+    "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/by-hotel?hotelId=ONSZVDON&adults=2&checkInDate=2021-06-01&paymentPolicy=NONE&roomQuantity=1&view=FULL"
+  }, {
+    "type": "hotel-offers",
+    "hotel": {
+      "type": "hotel",
+      "hotelId": "WVSHA944",
+      "chainCode": "WV",
+      "name": "REGALIA SERVICED RESIDENCE",
+      "rating": "5",
+      "cityCode": "SHA",
+      "latitude": 33.62903,
+      "longitude": 117.00192,
+      "hotelDistance": {
+        "distance": 2.4,
+        "distanceUnit": "KM"
+      },
+      "address": {
+        "lines": ["NO 318 SHANG JING ROAD"],
+        "postalCode": "215011",
+        "cityName": "SUZHOU",
+        "countryCode": "CN"
+      },
+      "contact": {
+        "fax": "86-0512-68782187",
+        "phone": "86-0512-68251118"
+      },
+      "amenities": ["BAR", "COFFEE_SHOP", "BEAUTY_PARLOUR", "EXCHANGE_FACILITIES", "JACUZZI", "LAUNDRY_SERVICE", "PARKING", "SAUNA", "SIGHTSEEING", "TENNIS", "LOUNGE", "HAIRDRESSER", "AIR_CONDITIONING", "HAIR_DRYER", "DIRECT_DIAL_PHONE", "ROOM_SERVICE", "TELEVISION", "FIRE_DETECTORS", "FIRE_SAFETY", "SMOKE_DETECTOR", "SPRINKLERS", "VIDEO_SURVEILANCE", "OUTDOOR_POOL", "GOLF"],
+      "media": [{
+        "uri": "http://uat.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/91BB09AD53EA41C99A39157FE95174A4",
+        "category": "LOBBY"
+      }]
+    },
+    "available": false,
+    "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/by-hotel?hotelId=WVSHA944&adults=2&checkInDate=2021-06-01&paymentPolicy=NONE&roomQuantity=1&view=FULL"
+  }, {
+    "type": "hotel-offers",
+    "hotel": {
+      "type": "hotel",
+      "hotelId": "ONSZVJIN",
+      "chainCode": "ON",
+      "name": "SCHOLARS INN HOTEL JINMEN",
+      "rating": "3",
+      "cityCode": "SZV",
+      "latitude": 33.62903,
+      "longitude": 117.00192,
+      "hotelDistance": {
+        "distance": 2.4,
+        "distanceUnit": "KM"
+      },
+      "address": {
+        "lines": ["366 JING DE ROAD"],
+        "postalCode": "215000",
+        "cityName": "SUZHOU",
+        "countryCode": "CN"
+      },
+      "contact": {
+        "phone": "86 512 65247388",
+        "fax": "86 512 65247378"
+      },
+      "description": {
+        "lang": "en",
+        "text": "Scholars Inn Jinmen is a 3 star business hotel which is located in the heart of Suzhou. a city which is as beautiful as picture. It has good location and convenient traffic. And the hotel is not far away from Cold Mountain Temple, the Tiger Hill, Humble Administrator’s Garden, and Lion Grove Garden. etc. There are a total of 56 guest rooms in the hotel. Every room has free items of high speed internet access, 2 bottles of mineral water everyday and daily newspaper. Modern facilities in rooms are satellite TV set, writing desk and chair, IDD, DDD telephone, bed cabinet and lamp and well decorated bathroom. If guests want to hold a meeting room with 50-60 persons will satisfy needs. The restaurant in the hotel supplies buffet breakfast, both Chinese and western food. Furthermore, not far from the hotel, there are Food Street. Chess room, beauty salon are offer to the guests."
+      },
+      "amenities": ["BUSINESS_CENTER", "MEETING_ROOMS", "COFFEE_SHOP", "RESTAURANT", "ELEVATOR", "FREE_INTERNET", "PARKING", "LOUNGE", "AIR_CONDITIONING", "ROOM_SERVICE"],
+      "media": [{
+        "uri": "http://uat.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/C661AB2959F64DC193DEE68A2EC1AEF6",
+        "category": "EXTERIOR"
+      }]
+    },
+    "available": false,
+    "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/by-hotel?hotelId=ONSZVJIN&adults=2&checkInDate=2021-06-01&paymentPolicy=NONE&roomQuantity=1&view=FULL"
+  }, {
+    "type": "hotel-offers",
+    "hotel": {
+      "type": "hotel",
+      "hotelId": "ONSZVSCH",
+      "chainCode": "ON",
+      "name": "SCHOLARS CITY HOTEL",
+      "rating": "4",
+      "cityCode": "SZV",
+      "latitude": 33.62903,
+      "longitude": 117.00192,
+      "hotelDistance": {
+        "distance": 2.4,
+        "distanceUnit": "KM"
+      },
+      "address": {
+        "lines": ["60 YUSHAN ROAD"],
+        "postalCode": "215011",
+        "cityName": "SUZHOU",
+        "countryCode": "CN"
+      },
+      "contact": {
+        "phone": "86 512 87655888",
+        "fax": "86 512 87655883"
+      },
+      "description": {
+        "lang": "en",
+        "text": "Scholars City Hotel is a 4 star business hotel which is located in high and new economic technical development area of Suzhou, near from the Japonic bar street, Suzhou Eden, Hanshan temple, etc. This is a building which absorbs the element of tradition and modern. There are 95 rooms existing in 6 floors, such as deluxe suits, house chamber rooms, house chamber suits, etc. Free wifi in public area. All the rooms provide free wired internet, wifi, Chinese and English newspapers, modern facilities TV set, IDD, DDD, vertical mirror, and so on. Guests could enjoy in the night club and have some excises in gymnasium. Japanese style food made by professional cooks. Japanese style bar is an ideal place to spend your rest time. In a word, Japanese food and bar spread around the hotel. Living in this hotel, it is convenient for guests to go to shopping, to relax, and to have a tour. Welcome."
+      },
+      "amenities": ["BUSINESS_CENTER", "MEETING_ROOMS", "COFFEE_SHOP", "RESTAURANT", "BEAUTY_PARLOUR", "DISCO", "ELEVATOR", "EXCHANGE_FACILITIES", "GIFT_SHOP", "FREE_INTERNET", "MASSAGE", "PARKING", "LOUNGE", "AIR_CONDITIONING", "NON_SMOKING_ROOMS", "ROOM_SERVICE", "WI-FI_IN_ROOM", "SAFE_DEPOSIT_BOX"],
+      "media": [{
+        "uri": "http://uat.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/51A04D00ACA14ADF908DE7D203E52DA8",
+        "category": "EXTERIOR"
+      }]
+    },
+    "available": false,
+    "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/by-hotel?hotelId=ONSZVSCH&adults=2&checkInDate=2021-06-01&paymentPolicy=NONE&roomQuantity=1&view=FULL"
+  }, {
+    "type": "hotel-offers",
+    "hotel": {
+      "type": "hotel",
+      "hotelId": "ONSZVSUH",
+      "chainCode": "ON",
+      "name": "SU ZHOU INTERNTIONAL HOTEL",
+      "rating": "5",
+      "cityCode": "SZV",
+      "latitude": 33.61032,
+      "longitude": 117.00028,
+      "hotelDistance": {
+        "distance": 3.8,
+        "distanceUnit": "KM"
+      },
+      "address": {
+        "lines": ["177 YINGBIN EAST ROAD", "YONGQIAO DISTRICT"],
+        "postalCode": "234000",
+        "cityName": "SUZHOU",
+        "countryCode": "CN"
+      },
+      "contact": {
+        "phone": "86 557 6888888",
+        "fax": "86 557 3620222"
+      },
+      "amenities": ["BUSINESS_CENTER", "MEETING_ROOMS", "COFFEE_SHOP", "RESTAURANT", "DISABLED_FACILITIES", "BEAUTY_PARLOUR", "CAR_RENTAL", "DISCO", "ELEVATOR", "EXECUTIVE_FLOOR", "GIFT_SHOP", "FREE_INTERNET", "MASSAGE", "PARKING", "SAUNA", "TENNIS", "LOUNGE", "SWIMMING_POOL", "AIR_CONDITIONING", "NON_SMOKING_ROOMS", "ROOM_SERVICE", "SAFE_DEPOSIT_BOX"]
+    },
+    "available": false,
+    "self": "https://test.api.amadeus.com/v2/shopping/hotel-offers/by-hotel?hotelId=ONSZVSUH&adults=2&checkInDate=2021-06-01&paymentPolicy=NONE&roomQuantity=1&view=FULL"
+  }]
+}

@@ -1,0 +1,876 @@
+{
+  "meta": {
+    "code": 200
+  },
+  "response": {
+    "holidays": [{
+      "name": "New Year's Day",
+      "description": "New Year\u2019s Day is the first day of the year, or January 1, in the Gregorian calendar.",
+      "country": {
+        "id": "cn",
+        "name": "China"
+      },
+      "date": {
+        "iso": "2021-01-01",
+        "datetime": {
+          "year": 2021,
+          "month": 1,
+          "day": 1
+        }
+      },
+      "type": ["National holiday"],
+      "locations": "All",
+      "states": "All"
+    }, {
+      "name": "New Year's Holiday",
+      "description": "New Year's Holiday is a national holiday in China",
+      "country": {
+        "id": "cn",
+        "name": "China"
+      },
+      "date": {
+        "iso": "2021-01-02",
+        "datetime": {
+          "year": 2021,
+          "month": 1,
+          "day": 2
+        }
+      },
+      "type": ["National holiday"],
+      "locations": "All",
+      "states": "All"
+    }, {
+      "name": "New Year's Holiday",
+      "description": "New Year's Holiday is a national holiday in China",
+      "country": {
+        "id": "cn",
+        "name": "China"
+      },
+      "date": {
+        "iso": "2021-01-03",
+        "datetime": {
+          "year": 2021,
+          "month": 1,
+          "day": 3
+        }
+      },
+      "type": ["National holiday"],
+      "locations": "All",
+      "states": "All"
+    }, {
+      "name": "Spring Festival Eve",
+      "description": "Spring Festival Eve is a national holiday in China",
+      "country": {
+        "id": "cn",
+        "name": "China"
+      },
+      "date": {
+        "iso": "2021-02-11",
+        "datetime": {
+          "year": 2021,
+          "month": 2,
+          "day": 11
+        }
+      },
+      "type": ["National holiday"],
+      "locations": "All",
+      "states": "All"
+    }, {
+      "name": "Chinese New Year",
+      "description": "Chinese New Year, also known as the Spring Festival, is one of the largest celebratory events in China.",
+      "country": {
+        "id": "cn",
+        "name": "China"
+      },
+      "date": {
+        "iso": "2021-02-12",
+        "datetime": {
+          "year": 2021,
+          "month": 2,
+          "day": 12
+        }
+      },
+      "type": ["National holiday"],
+      "locations": "All",
+      "states": "All"
+    }, {
+      "name": "Spring Festival Golden Week holiday",
+      "description": "Spring Festival Golden Week holiday is a national holiday in China",
+      "country": {
+        "id": "cn",
+        "name": "China"
+      },
+      "date": {
+        "iso": "2021-02-13",
+        "datetime": {
+          "year": 2021,
+          "month": 2,
+          "day": 13
+        }
+      },
+      "type": ["National holiday"],
+      "locations": "All",
+      "states": "All"
+    }, {
+      "name": "Spring Festival Golden Week holiday",
+      "description": "Spring Festival Golden Week holiday is a national holiday in China",
+      "country": {
+        "id": "cn",
+        "name": "China"
+      },
+      "date": {
+        "iso": "2021-02-14",
+        "datetime": {
+          "year": 2021,
+          "month": 2,
+          "day": 14
+        }
+      },
+      "type": ["National holiday"],
+      "locations": "All",
+      "states": "All"
+    }, {
+      "name": "Spring Festival Golden Week holiday",
+      "description": "Spring Festival Golden Week holiday is a national holiday in China",
+      "country": {
+        "id": "cn",
+        "name": "China"
+      },
+      "date": {
+        "iso": "2021-02-15",
+        "datetime": {
+          "year": 2021,
+          "month": 2,
+          "day": 15
+        }
+      },
+      "type": ["National holiday"],
+      "locations": "All",
+      "states": "All"
+    }, {
+      "name": "Spring Festival Golden Week holiday",
+      "description": "Spring Festival Golden Week holiday is a national holiday in China",
+      "country": {
+        "id": "cn",
+        "name": "China"
+      },
+      "date": {
+        "iso": "2021-02-16",
+        "datetime": {
+          "year": 2021,
+          "month": 2,
+          "day": 16
+        }
+      },
+      "type": ["National holiday"],
+      "locations": "All",
+      "states": "All"
+    }, {
+      "name": "Spring Festival Golden Week holiday",
+      "description": "Spring Festival Golden Week holiday is a national holiday in China",
+      "country": {
+        "id": "cn",
+        "name": "China"
+      },
+      "date": {
+        "iso": "2021-02-17",
+        "datetime": {
+          "year": 2021,
+          "month": 2,
+          "day": 17
+        }
+      },
+      "type": ["National holiday"],
+      "locations": "All",
+      "states": "All"
+    }, {
+      "name": "Lantern Festival",
+      "description": "Lantern Festival is a observance in China",
+      "country": {
+        "id": "cn",
+        "name": "China"
+      },
+      "date": {
+        "iso": "2021-02-26",
+        "datetime": {
+          "year": 2021,
+          "month": 2,
+          "day": 26
+        }
+      },
+      "type": ["Observance"],
+      "locations": "All",
+      "states": "All"
+    }, {
+      "name": "International Women's Day",
+      "description": "International Women's Day is a half day holiday in China",
+      "country": {
+        "id": "cn",
+        "name": "China"
+      },
+      "date": {
+        "iso": "2021-03-08",
+        "datetime": {
+          "year": 2021,
+          "month": 3,
+          "day": 8
+        }
+      },
+      "type": ["National holiday"],
+      "locations": "All",
+      "states": "All"
+    }, {
+      "name": "Arbor Day",
+      "description": "Arbor Day is a observance in China",
+      "country": {
+        "id": "cn",
+        "name": "China"
+      },
+      "date": {
+        "iso": "2021-03-12",
+        "datetime": {
+          "year": 2021,
+          "month": 3,
+          "day": 12
+        }
+      },
+      "type": ["Observance"],
+      "locations": "All",
+      "states": "All"
+    }, {
+      "name": "Zhonghe Festival",
+      "description": "Zhonghe Festival is a observance in China",
+      "country": {
+        "id": "cn",
+        "name": "China"
+      },
+      "date": {
+        "iso": "2021-03-14",
+        "datetime": {
+          "year": 2021,
+          "month": 3,
+          "day": 14
+        }
+      },
+      "type": ["Observance"],
+      "locations": "All",
+      "states": "All"
+    }, {
+      "name": "March Equinox", 
+      "description": "March Equinox in China (Beijing)",
+      "country": {
+        "id": "cn",
+        "name": "China"
+      },
+      "date": {
+        "iso": "2021-03-20T17:37:30+08:00",
+        "datetime": {
+          "year": 2021,
+          "month": 3,
+          "day": 20,
+          "hour": 17,
+          "minute": 37,
+          "second": 30
+        },
+        "timezone": {
+          "offset": "+08:00",
+          "zoneabb": "CST",
+          "zoneoffset": 28800,
+          "zonedst": 0,
+          "zonetotaloffset": 28800
+        }
+      },
+      "type": ["Season"],
+      "locations": "All",
+      "states": "All"
+    }, {
+      "name": "Qing Ming Jie holiday",
+      "description": "Qing Ming Jie holiday is a national holiday in China",
+      "country": {
+        "id": "cn",
+        "name": "China"
+      },
+      "date": {
+        "iso": "2021-04-03",
+        "datetime": {
+          "year": 2021,
+          "month": 4,
+          "day": 3
+        }
+      },
+      "type": ["National holiday"],
+      "locations": "All",
+      "states": "All"
+    }, {
+      "name": "Qing Ming Jie holiday",
+      "description": "Qing Ming Jie holiday is a national holiday in China",
+      "country": {
+        "id": "cn",
+        "name": "China"
+      },
+      "date": {
+        "iso": "2021-04-04",
+        "datetime": {
+          "year": 2021,
+          "month": 4,
+          "day": 4
+        }
+      },
+      "type": ["National holiday"],
+      "locations": "All",
+      "states": "All"
+    }, {
+      "name": "Qing Ming Jie",
+      "description": "Qing Ming Jie is a national holiday in China",
+      "country": {
+        "id": "cn",
+        "name": "China"
+      },
+      "date": {
+        "iso": "2021-04-05",
+        "datetime": {
+          "year": 2021,
+          "month": 4,
+          "day": 5
+        }
+      },
+      "type": ["National holiday"],
+      "locations": "All",
+      "states": "All"
+    }, {
+      "name": "Labour Day",
+      "description": "Labor Day, or May Day, is a day off for workers in many countries around the world.",
+      "country": {
+        "id": "cn",
+        "name": "China"
+      },
+      "date": {
+        "iso": "2021-05-01",
+        "datetime": {
+          "year": 2021,
+          "month": 5,
+          "day": 1
+        }
+      },
+      "type": ["National holiday"],
+      "locations": "All",
+      "states": "All"
+    }, {
+      "name": "Labour Day Holiday",
+      "description": "Labour Day Holiday is a national holiday in China",
+      "country": {
+        "id": "cn",
+        "name": "China"
+      },
+      "date": {
+        "iso": "2021-05-02",
+        "datetime": {
+          "year": 2021,
+          "month": 5,
+          "day": 2
+        }
+      },
+      "type": ["National holiday"],
+      "locations": "All",
+      "states": "All"
+    }, {
+      "name": "Labour Day Holiday",
+      "description": "Labour Day Holiday is a national holiday in China",
+      "country": {
+        "id": "cn",
+        "name": "China"
+      },
+      "date": {
+        "iso": "2021-05-03",
+        "datetime": {
+          "year": 2021,
+          "month": 5,
+          "day": 3
+        }
+      },
+      "type": ["National holiday"],
+      "locations": "All",
+      "states": "All"
+    }, {
+      "name": "Labour Day Holiday",
+      "description": "Labour Day Holiday is a national holiday in China",
+      "country": {
+        "id": "cn",
+        "name": "China"
+      },
+      "date": {
+        "iso": "2021-05-04",
+        "datetime": {
+          "year": 2021,
+          "month": 5,
+          "day": 4
+        }
+      },
+      "type": ["National holiday"],
+      "locations": "All",
+      "states": "All"
+    }, {
+      "name": "Youth Day",
+      "description": "Youth Day is a half day holiday in China",
+      "country": {
+        "id": "cn",
+        "name": "China"
+      },
+      "date": {
+        "iso": "2021-05-04",
+        "datetime": {
+          "year": 2021,
+          "month": 5,
+          "day": 4
+        }
+      },
+      "type": ["National holiday"],
+      "locations": "All",
+      "states": "All"
+    }, {
+      "name": "Labour Day Holiday",
+      "description": "Labour Day Holiday is a national holiday in China",
+      "country": {
+        "id": "cn",
+        "name": "China"
+      },
+      "date": {
+        "iso": "2021-05-05",
+        "datetime": {
+          "year": 2021,
+          "month": 5,
+          "day": 5
+        }
+      },
+      "type": ["National holiday"],
+      "locations": "All",
+      "states": "All"
+    }, {
+      "name": "Children's Day",
+      "description": "Children's Day is a national holiday in China",
+      "country": {
+        "id": "cn",
+        "name": "China"
+      },
+      "date": {
+        "iso": "2021-06-01",
+        "datetime": {
+          "year": 2021,
+          "month": 6,
+          "day": 1
+        }
+      },
+      "type": ["National holiday"],
+      "locations": "All",
+      "states": "All"
+    }, {
+      "name": "Dragon Boat Festival",
+      "description": "The Dragon Boat Festival is also known as the Duanwu Festival in China. It is celebrated on the fifth day of the fifth month on the Chinese lunisolar calendar.",
+      "country": {
+        "id": "cn",
+        "name": "China"
+      },
+      "date": {
+        "iso": "2021-06-14",
+        "datetime": {
+          "year": 2021,
+          "month": 6,
+          "day": 14
+        }
+      },
+      "type": ["National holiday"],
+      "locations": "All",
+      "states": "All"
+    }, {
+      "name": "June Solstice",
+      "description": "June Solstice in China (Beijing)",
+      "country": {
+        "id": "cn",
+        "name": "China"
+      },
+      "date": {
+        "iso": "2021-06-21T11:32:08+08:00",
+        "datetime": {
+          "year": 2021,
+          "month": 6,
+          "day": 21,
+          "hour": 11,
+          "minute": 32,
+          "second": 8
+        },
+        "timezone": {
+          "offset": "+08:00",
+          "zoneabb": "CST",
+          "zoneoffset": 28800,
+          "zonedst": 0,
+          "zonetotaloffset": 28800
+        }
+      },
+      "type": ["Season"],
+      "locations": "All",
+      "states": "All"
+    }, {
+      "name": "CPC Founding Day",
+      "description": "CPC Founding Day is a observance in China",
+      "country": {
+        "id": "cn",
+        "name": "China"
+      },
+      "date": {
+        "iso": "2021-07-01",
+        "datetime": {
+          "year": 2021,
+          "month": 7,
+          "day": 1
+        }
+      },
+      "type": ["Observance"],
+      "locations": "All",
+      "states": "All"
+    }, {
+      "name": "Maritime Day",
+      "description": "Maritime Day is a observance in China",
+      "country": {
+        "id": "cn",
+        "name": "China"
+      },
+      "date": {
+        "iso": "2021-07-11",
+        "datetime": {
+          "year": 2021,
+          "month": 7,
+          "day": 11
+        }
+      },
+      "type": ["Observance"],
+      "locations": "All",
+      "states": "All"
+    }, {
+      "name": "Army Day",
+      "description": "Army Day is a national holiday in China",
+      "country": {
+        "id": "cn",
+        "name": "China"
+      },
+      "date": {
+        "iso": "2021-08-01",
+        "datetime": {
+          "year": 2021,
+          "month": 8,
+          "day": 1
+        }
+      },
+      "type": ["National holiday"],
+      "locations": "All",
+      "states": "All"
+    }, {
+      "name": "Chinese Valentine's Day",
+      "description": "Chinese Valentine's Day is a observance in China",
+      "country": {
+        "id": "cn",
+        "name": "China"
+      },
+      "date": {
+        "iso": "2021-08-14",
+        "datetime": {
+          "year": 2021,
+          "month": 8,
+          "day": 14
+        }
+      },
+      "type": ["Observance"],
+      "locations": "All",
+      "states": "All"
+    }, {
+      "name": "Spirit Festival",
+      "description": "Spirit Festival is a observance in China",
+      "country": {
+        "id": "cn",
+        "name": "China"
+      },
+      "date": {
+        "iso": "2021-08-22",
+        "datetime": {
+          "year": 2021,
+          "month": 8,
+          "day": 22
+        }
+      },
+      "type": ["Observance"],
+      "locations": "All",
+      "states": "All"
+    }, {
+      "name": "Teachers' Day",
+      "description": "Teachers' Day is a observance in China",
+      "country": {
+        "id": "cn",
+        "name": "China"
+      },
+      "date": {
+        "iso": "2021-09-10",
+        "datetime": {
+          "year": 2021,
+          "month": 9,
+          "day": 10
+        }
+      },
+      "type": ["Observance"],
+      "locations": "All",
+      "states": "All"
+    }, {
+      "name": "Mid-Autumn Festival",
+      "description": "Mid-Autumn Festival is a national holiday in China",
+      "country": {
+        "id": "cn",
+        "name": "China"
+      },
+      "date": {
+        "iso": "2021-09-21",
+        "datetime": {
+          "year": 2021,
+          "month": 9,
+          "day": 21
+        }
+      },
+      "type": ["National holiday"],
+      "locations": "All",
+      "states": "All"
+    }, {
+      "name": "September Equinox",
+      "description": "September Equinox in China (Beijing)",
+      "country": {
+        "id": "cn",
+        "name": "China"
+      },
+      "date": {
+        "iso": "2021-09-23T03:21:10+08:00",
+        "datetime": {
+          "year": 2021,
+          "month": 9,
+          "day": 23,
+          "hour": 3,
+          "minute": 21,
+          "second": 10
+        },
+        "timezone": {
+          "offset": "+08:00",
+          "zoneabb": "CST",
+          "zoneoffset": 28800,
+          "zonedst": 0,
+          "zonetotaloffset": 28800
+        }
+      },
+      "type": ["Season"],
+      "locations": "All",
+      "states": "All"
+    }, {
+      "name": "National Day",
+      "description": "National Day is a national holiday in China",
+      "country": {
+        "id": "cn",
+        "name": "China"
+      },
+      "date": {
+        "iso": "2021-10-01",
+        "datetime": {
+          "year": 2021,
+          "month": 10,
+          "day": 1
+        }
+      },
+      "type": ["National holiday"],
+      "locations": "All",
+      "states": "All"
+    }, {
+      "name": "National Day Golden Week holiday",
+      "description": "National Day Golden Week holiday is a national holiday in China",
+      "country": {
+        "id": "cn",
+        "name": "China"
+      },
+      "date": {
+        "iso": "2021-10-02",
+        "datetime": {
+          "year": 2021,
+          "month": 10,
+          "day": 2
+        }
+      },
+      "type": ["National holiday"],
+      "locations": "All",
+      "states": "All"
+    }, {
+      "name": "National Day Golden Week holiday",
+      "description": "National Day Golden Week holiday is a national holiday in China",
+      "country": {
+        "id": "cn",
+        "name": "China"
+      },
+      "date": {
+        "iso": "2021-10-03",
+        "datetime": {
+          "year": 2021,
+          "month": 10,
+          "day": 3
+        }
+      },
+      "type": ["National holiday"],
+      "locations": "All",
+      "states": "All"
+    }, {
+      "name": "National Day Golden Week holiday",
+      "description": "National Day Golden Week holiday is a national holiday in China",
+      "country": {
+        "id": "cn",
+        "name": "China"
+      },
+      "date": {
+        "iso": "2021-10-04",
+        "datetime": {
+          "year": 2021,
+          "month": 10,
+          "day": 4
+        }
+      },
+      "type": ["National holiday"],
+      "locations": "All",
+      "states": "All"
+    }, {
+      "name": "National Day Golden Week holiday",
+      "description": "National Day Golden Week holiday is a national holiday in China",
+      "country": {
+        "id": "cn",
+        "name": "China"
+      },
+      "date": {
+        "iso": "2021-10-05",
+        "datetime": {
+          "year": 2021,
+          "month": 10,
+          "day": 5
+        }
+      },
+      "type": ["National holiday"],
+      "locations": "All",
+      "states": "All"
+    }, {
+      "name": "National Day Golden Week holiday",
+      "description": "National Day Golden Week holiday is a national holiday in China",
+      "country": {
+        "id": "cn",
+        "name": "China"
+      },
+      "date": {
+        "iso": "2021-10-06",
+        "datetime": {
+          "year": 2021,
+          "month": 10,
+          "day": 6
+        }
+      },
+      "type": ["National holiday"],
+      "locations": "All",
+      "states": "All"
+    }, {
+      "name": "National Day Golden Week holiday",
+      "description": "National Day Golden Week holiday is a national holiday in China",
+      "country": {
+        "id": "cn",
+        "name": "China"
+      },
+      "date": {
+        "iso": "2021-10-07",
+        "datetime": {
+          "year": 2021,
+          "month": 10,
+          "day": 7
+        }
+      },
+      "type": ["National holiday"],
+      "locations": "All",
+      "states": "All"
+    }, {
+      "name": "Double Ninth Festival",
+      "description": "Double Ninth Festival is a observance in China",
+      "country": {
+        "id": "cn",
+        "name": "China"
+      },
+      "date": {
+        "iso": "2021-10-14",
+        "datetime": {
+          "year": 2021,
+          "month": 10,
+          "day": 14
+        }
+      },
+      "type": ["Observance"],
+      "locations": "All",
+      "states": "All"
+    }, {
+      "name": "Journalists' Day",
+      "description": "Journalists' Day is a observance in China",
+      "country": {
+        "id": "cn",
+        "name": "China"
+      },
+      "date": {
+        "iso": "2021-11-08",
+        "datetime": {
+          "year": 2021,
+          "month": 11,
+          "day": 8
+        }
+      },
+      "type": ["Observance"],
+      "locations": "All",
+      "states": "All"
+    }, {
+      "name": "December Solstice",
+      "description": "December Solstice in China (Beijing)",
+      "country": {
+        "id": "cn",
+        "name": "China"
+      },
+      "date": {
+        "iso": "2021-12-21T23:59:17+08:00",
+        "datetime": {
+          "year": 2021,
+          "month": 12,
+          "day": 21,
+          "hour": 23,
+          "minute": 59,
+          "second": 17
+        },
+        "timezone": {
+          "offset": "+08:00",
+          "zoneabb": "CST",
+          "zoneoffset": 28800,
+          "zonedst": 0,
+          "zonetotaloffset": 28800
+        }
+      },
+      "type": ["Season"],
+      "locations": "All",
+      "states": "All"
+    }, {
+      "name": "Christmas Day",
+      "description": "Christmas Day is one of the biggest Christian celebrations and falls on December 25 in the Gregorian calendar.",
+      "country": {
+        "id": "cn",
+        "name": "China"
+      },
+      "date": {
+        "iso": "2021-12-25",
+        "datetime": {
+          "year": 2021,
+          "month": 12,
+          "day": 25
+        }
+      },
+      "type": ["Observance"],
+      "locations": "All",
+      "states": "All"
+    }]
+  }
+}
