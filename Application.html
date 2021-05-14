@@ -440,7 +440,6 @@
 
     .input-area {
       margin-top: 10px;
-      /* margin-bottom: 10px; */
       padding-bottom: 10px;
       border-bottom: 1px solid var(--dark-green);
       background-color: var(--light-blue);
@@ -1267,7 +1266,7 @@
     function dateDiff(sDate1, sDate2) { // format: yyyy-mm-dd
       var aDate, oDate1, oDate2, iDays
       aDate = sDate1.split("-")
-      oDate1 = new Date(aDate[1] + '-' + aDate[2] + '-' + aDate[0]) //convert to format: xx-xx-xxxx
+      oDate1 = new Date(aDate[1] + '-' + aDate[2] + '-' + aDate[0]) // convert to format: xx-xx-xxxx
       aDate = sDate2.split("-")
       oDate2 = new Date(aDate[1] + '-' + aDate[2] + '-' + aDate[0])
       //iDays = parseInt(Math.abs(oDate1 - oDate2) / 1000 / 60 / 60 / 24)
