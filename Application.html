@@ -26,8 +26,7 @@
       }
     }
 
-    // template declaration, using ES6 syntax
-    /* Hotel Card Declaration */
+    // Wheather card template declaration, using ES6 syntax
     class WeatherCard extends HTMLElement {
       constructor() {
         super();
@@ -491,9 +490,6 @@
 
   <div id="app">
 
-    <!-- 1. Get the list of public holiday of selected country: -->
-    <!-- 1a. get all the available countries -->
-
     <div id="app-form">
       <div id="country-info" class="input-area">
         <h2>Select a Country or Region:</h2>
@@ -611,7 +607,6 @@
       console.log('countryName: ' + countryName);
 
       // https://www.universal-tutorial.com/rest-apis/free-rest-api-for-country-state-city
-      // token: i7c8mYeYUSr9OMq0jSIk8MJdFAHqRpZtXZ_ec7FdClkKgWnG_vqueBorQq-9Y5o-kpg
 
       if ($('#select-country').val() != 'placeholder') {
 
@@ -768,28 +763,18 @@
                           '<option value="' + item.date.iso + '">' + item.name + ' | ' + item
                           .date
                           .iso + '</option>')
-
                       })
-
                     }
                   })
                 }
               }
             })
-
           }
         })
-
       } else {
         alert('invalid selection')
       }
-
     }
-
-    // weather api base url
-    //http://api.weatherunlocked.com/ or https://api.weatherunlocked.com/
-    //appid:b39b995a
-    //key:c87d719883516b97659376147a87a98c
 
     function selectCity() {
       $('#weather-list').html('')
@@ -1119,10 +1104,9 @@
                   })
                 }
               })
-
-
             }
           })
+
           // #######
           // Case 4: The holiday is less than 4 days away
           // #######
@@ -1241,8 +1225,6 @@
             }
           })
         }
-
-
       } else {
         alert('invalid selection of holiday')
       }
@@ -1255,13 +1237,9 @@
       let year = 2021;
       let month = now.getMonth() + 1;
       let date = now.getDate();
-
       const result = year + '-' + month + '-' + date
-
       return result;
-
     }
-
 
     function dateDiff(sDate1, sDate2) { // format: yyyy-mm-dd
       var aDate, oDate1, oDate2, iDays
