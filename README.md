@@ -4,7 +4,7 @@
   Coursework 2 of CPT 304, it basically works with some details to be improved. To run it, simply open the <code>Application.html</code> in browser.
 </p>
 
-<img src="https://github.com/neverIand/Component-Composition/blob/master/Component-Composition%5B640i%5D.gif" />
+<img src="https://github.com/neverIand/Component-Composition/blob/master/Component-Composition.gif" />
 
 <h2>Function List</h2>
 
